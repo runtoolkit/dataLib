@@ -1,14 +1,14 @@
 # Block found!
 # Increment hook.placed scoreboard
-scoreboard players add @s macro.hook_placed 1
+scoreboard players add @s datalib.hook_placed 1
 
 # Write to hook event storage (other systems can listen)
 # Save block coordinates (via marker summon from positioned context)
-summon minecraft:marker ~ ~ ~ {Tags:["macro.hook_block_pos"]}
-execute store result storage datalib:hook placed.x int 1 run data get entity @e[type=minecraft:marker,tag=macro.hook_block_pos,limit=1] Pos[0]
-execute store result storage datalib:hook placed.y int 1 run data get entity @e[type=minecraft:marker,tag=macro.hook_block_pos,limit=1] Pos[1]
-execute store result storage datalib:hook placed.z int 1 run data get entity @e[type=minecraft:marker,tag=macro.hook_block_pos,limit=1] Pos[2]
-kill @e[type=minecraft:marker,tag=macro.hook_block_pos,limit=1]
+summon minecraft:marker ~ ~ ~ {Tags:["datalib.hook_block_pos"]}
+execute store result storage datalib:hook placed.x int 1 run data get entity @e[type=minecraft:marker,tag=datalib.hook_block_pos,limit=1] Pos[0]
+execute store result storage datalib:hook placed.y int 1 run data get entity @e[type=minecraft:marker,tag=datalib.hook_block_pos,limit=1] Pos[1]
+execute store result storage datalib:hook placed.z int 1 run data get entity @e[type=minecraft:marker,tag=datalib.hook_block_pos,limit=1] Pos[2]
+kill @e[type=minecraft:marker,tag=datalib.hook_block_pos,limit=1]
 
 # Record timestamp (from datalib.time scoreboard)
 execute store result storage datalib:hook placed.tick int 1 run scoreboard players get #time datalib.time
@@ -30,7 +30,7 @@ execute as @s run function datalib:systems/hook/internal/fire with storage datal
 data remove storage datalib:engine _hook_fire_tmp
 
 # Legacy event system support (if present)
-execute if score #m_hook macro.Flags matches 1.. run function datalib:events/fire {id:"hook.placed"}
+execute if score #m_hook datalib.Flags matches 1.. run function datalib:events/fire {id:"hook.placed"}
 
 # Cleanup: reset counter
 scoreboard players reset @s dl.tmp

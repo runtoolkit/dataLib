@@ -1,6 +1,6 @@
 # datalib:api/toggle/hook/true — Enable the hook module
 # Called by the module toggle dialog when State = true.
-# Caller: macro.admin tag required (enforced by dialog show guard in show.mcfunction)
+# Caller: datalib.admin tag required (enforced by dialog show guard in show.mcfunction)
 
 execute unless entity @s[tag=datalib.admin] run return 0
 

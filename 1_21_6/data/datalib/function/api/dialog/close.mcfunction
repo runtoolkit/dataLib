@@ -1,5 +1,5 @@
 dialog clear @s
 
-tag @s remove macro.dialog_opened
+tag @s remove datalib.dialog_opened
 
-tag @s add macro.dialog_closed
+tag @s add datalib.dialog_closed

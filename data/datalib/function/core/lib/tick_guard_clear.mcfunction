@@ -1,1 +1,1 @@
-scoreboard players set @s macro.tick_guard -1
+scoreboard players set @s datalib.tick_guard -1

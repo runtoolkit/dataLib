@@ -2,7 +2,7 @@
 # Opens the module toggle dialog (inline, 1.21.6+).
 #
 # Usage:  function datalib:api/toggle/show
-# Caller: macro.admin tag required
+# Caller: datalib.admin tag required
 #
 # On submit → dialog calls:
 #   /function datalib:api/toggle/<Module>/<State>

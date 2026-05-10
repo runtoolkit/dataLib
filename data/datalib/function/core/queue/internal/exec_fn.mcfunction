@@ -6,4 +6,4 @@
 #   fn — function path to call
 
 $data modify storage datalib:engine _dispatch.func set value "$(fn)"
-function #macro:internal/dispatch
+function #datalib:internal/dispatch

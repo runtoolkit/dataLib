@@ -1,9 +1,9 @@
 # datalib:core/cmd/run
 # Entry point for the command dispatcher.
-# Fires when any player triggers macro_run (via player_systems.mcfunction).
+# Fires when any player triggers dl_run (via player_systems.mcfunction).
 # Expects datalib:input cmd to be set before triggering:
 #   data merge storage datalib:input {cmd:{type:"...", data:{...}}}
-#   /trigger macro_run set 1
+#   /trigger dl_run set 1
 #
 # Available types: see datalib:debug/tools/trigger/internal/dispatch for full list.
 # Examples:

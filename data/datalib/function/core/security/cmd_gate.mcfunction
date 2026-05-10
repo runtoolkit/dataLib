@@ -15,7 +15,7 @@
 #   • sandbox:1b raises the floor to security.sandbox_cmd_min_level.
 #   • Non-player callers (server/datapack) pass through — they are
 #     already op-gated by the server itself.
-#   • admin_can_override:0b means macro.admin tag gives no bypass.
+#   • admin_can_override:0b means datalib.admin tag gives no bypass.
 # ─────────────────────────────────────────────────────────────────
 
 # Guard 1: Engine must be loaded

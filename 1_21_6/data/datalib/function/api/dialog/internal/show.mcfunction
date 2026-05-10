@@ -5,7 +5,7 @@
 # Uses show_macro_exec to pipe DIALOG compound as inline dialog.
 # ─────────────────────────────────────────────────────────────────
 
-execute if entity @s[tag=macro.dialog_opened] at @s run return 0
+execute if entity @s[tag=datalib.dialog_opened] at @s run return 0
 execute unless data storage datalib:engine dialog.DIALOG run return 0
 
 execute at @s run function datalib:player/get_name
@@ -13,6 +13,6 @@ data modify storage datalib:engine dialog.NAME set from storage datalib:names te
 
 function datalib:api/dialog/internal/show_dialog_exec with storage datalib:engine dialog
 
-tag @s add macro.dialog_opened
+tag @s add datalib.dialog_opened
 
 return 1
