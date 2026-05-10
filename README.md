@@ -3,12 +3,7 @@
 
 ---
 
-[![commits](https://img.shields.io/github/commit-activity/t/runtoolkit/DataLib?label=commits&logo=github)](https://github.com/runtoolkit/DataLib/commits)
-[![issues](https://img.shields.io/github/issues/runtoolkit/DataLib?logo=github)](https://github.com/runtoolkit/DataLib/issues)
-[![pull requests](https://img.shields.io/github/issues-pr/runtoolkit/DataLib?logo=github)](https://github.com/runtoolkit/DataLib/pulls)
-[![license](https://img.shields.io/github/license/runtoolkit/DataLib)](https://github.com/runtoolkit/DataLib/blob/main/LICENSE)
 
----
 > Current version: **v5.1.0**
 ---
 
