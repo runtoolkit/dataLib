@@ -3,4 +3,4 @@
 # @s = takas yapan oyuncu
 
 advancement revoke @s only datalib:systems/hook/trade
-scoreboard players add @s macro.hook_traded 1
+scoreboard players add @s datalib.hook_traded 1

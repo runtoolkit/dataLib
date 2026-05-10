@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────
-# macro:world/entity/clear_effects
+# datalib:world/entity/clear_effects
 # Clears all active potion effects from entities matching type+tag.
 #
 # INPUT : $(type) → entity type selector (e.g. "minecraft:player")

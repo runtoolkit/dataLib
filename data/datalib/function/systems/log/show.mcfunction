@@ -1,7 +1,7 @@
 # datalib:systems/log/show
 # Usage: /function datalib:systems/log/show
 # Prints the log buffer to the calling player.
-# Requires: macro.admin tag
+# Requires: datalib.admin tag
 execute unless entity @s[tag=datalib.admin] run return 0
 
 tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"━━━ Log Buffer ","color":"aqua"},{"text":"(level: ","color":"#555555"},{"score":{"name":"#dl.log_level","objective":"dl.log_level"},"color":"white"},{"text":")","color":"#555555"},{"text":"━━━━━━━━━━━━━","color":"#555555"}]

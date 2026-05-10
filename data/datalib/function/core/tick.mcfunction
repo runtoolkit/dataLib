@@ -11,7 +11,7 @@ execute unless entity @a run return 0
 execute unless data storage datalib:engine global{loaded:1b} run return 0
 
 # Online player count — kept for compatibility
-execute store result score #online macro.onlinePlayers if entity @a
+execute store result score #online datalib.onlinePlayers if entity @a
 
 # Guard: globally paused (datalib:core/tick/pause / datalib:core/tick/resume)
 execute if data storage datalib:engine tick{paused:1b} run return 0

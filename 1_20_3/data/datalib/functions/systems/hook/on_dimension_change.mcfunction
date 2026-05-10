@@ -3,4 +3,4 @@
 # @s = player who changed dimension
 
 advancement revoke @s only datalib:systems/hook/dimension_change
-scoreboard players add @s macro.hook_dim_changed 1
+scoreboard players add @s datalib.hook_dim_changed 1

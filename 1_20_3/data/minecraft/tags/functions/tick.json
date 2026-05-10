@@ -1,5 +1,5 @@
 {
   "values": [
-    "#macro:loop"
+    "datalib.main:datalib/tick"
   ]
 }

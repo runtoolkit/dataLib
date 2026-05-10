@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────
-# macro:world/time_phase
+# datalib:world/time_phase
 # Time phase detection compatible with 26.1+ World Clocks
 #
 # OUTPUT:

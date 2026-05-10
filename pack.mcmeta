@@ -67,7 +67,7 @@
   "filter": {
     "block": [
       {
-        "namespace": "macro",
+        "namespace": "datalib",
         "path": ".*\\.(txt|log|bak|tmp|js|tsx|sh|c|css|exe|jar|zip|apk|cmd|bat|py)$"
       },
       {
@@ -88,6 +88,10 @@
       },
       {
         "namespace": "player_action",
+        "path": ".*\\.(txt|log|bak|tmp|js|tsx|sh|c|css|exe|jar|zip|apk|cmd|bat|py)$"
+      },
+      {
+        "namespace": "global",
         "path": ".*\\.(txt|log|bak|tmp|js|tsx|sh|c|css|exe|jar|zip|apk|cmd|bat|py)$"
       }
     ]

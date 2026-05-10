@@ -11,7 +11,7 @@
 # When powered by redstone it writes its message to the server log file,
 # providing a persistent audit trail outside the in-game log buffer.
 #
-# Block placement uses y=-62 in the AME forceloaded chunk (0,0).
+# Block placement uses y=-62 in the dataLib forceloaded chunk (0,0).
 # The block is placed, powered, and immediately removed in the same tick.
 function datalib:api/cmd/internal/sandbox_blocked_macro with storage datalib:engine {}
 

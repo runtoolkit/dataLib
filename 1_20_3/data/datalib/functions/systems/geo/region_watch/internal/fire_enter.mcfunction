@@ -3,4 +3,4 @@
 # @s = player entering the region
 
 $data modify storage datalib:engine _dispatch.func set value "$(on_enter)"
-function #macro:internal/dispatch
+function #datalib:internal/dispatch

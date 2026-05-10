@@ -7,4 +7,4 @@
 #   player — player name used in selector
 
 $data modify storage datalib:engine _dispatch.func set value "$(fn)"
-$execute as $(player) run function #macro:internal/dispatch
+$execute as $(player) run function #datalib:internal/dispatch

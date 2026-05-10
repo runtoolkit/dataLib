@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────
-# macro:world/get_time
+# datalib:world/get_time
 # Compatible with 26.1+ World Clocks (minecraft:overworld)
 #
 # OUTPUT:

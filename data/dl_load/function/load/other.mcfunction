@@ -9,8 +9,8 @@ data remove storage datalib:input interval
 data remove storage datalib:input key
 
 scoreboard players enable @a[tag=datalib.admin] dl_menu
-scoreboard players enable @a[tag=datalib.admin] macro_run
-scoreboard players enable @a[tag=datalib.admin] macro_action
+scoreboard players enable @a[tag=datalib.admin] dl_run
+scoreboard players enable @a[tag=datalib.admin] dl_action
 
 # Initialize tick channel config on first world load
 function datalib:core/tick/init_channels

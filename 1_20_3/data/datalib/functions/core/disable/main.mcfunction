@@ -15,7 +15,7 @@
 #
 # Auto-cancel fires after 30 seconds if no response.
 #
-# REQUIRES: macro.admin tag on calling entity
+# REQUIRES: datalib.admin tag on calling entity
 # (check_all → perm_check verifies this before any caller reaches here)
 
 data modify storage datalib:engine pending_gate set value {type:"disable"}

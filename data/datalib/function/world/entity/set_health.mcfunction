@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────
-# macro:world/entity/set_health
+# datalib:world/entity/set_health
 # Sets the health of entities matching type+tag by applying
 # instant_health or instant_damage effects calibrated to the target amount.
 # Note: direct NBT entity Health write was removed in 1.20.5.

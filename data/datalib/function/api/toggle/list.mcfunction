@@ -2,7 +2,7 @@
 # Prints the enabled/disabled state of all DL modules.
 #
 # Usage:  function datalib:api/toggle/list
-# Caller: macro.admin tag required
+# Caller: datalib.admin tag required
 
 execute unless entity @s[tag=datalib.admin] run return 0
 

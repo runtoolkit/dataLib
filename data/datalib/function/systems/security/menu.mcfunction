@@ -1,5 +1,5 @@
 # datalib:systems/security/menu
-# Security status panel — part of #macro:admin/menu.
+# Security status panel — part of #datalib:admin/menu.
 # 1.21.6+ overlay replaces this with an interactive dialog.
 # Requires: dl.perm_level >= security.admin_min_level
 execute unless function datalib:debug/tools/utils/perm_check run return 0

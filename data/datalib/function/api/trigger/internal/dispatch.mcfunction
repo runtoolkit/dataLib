@@ -1,7 +1,7 @@
-scoreboard players operation $tc_player dl.tmp = @s macro_action
+scoreboard players operation $tc_player dl.tmp = @s dl_action
 
-scoreboard players set @s macro_action 0
-scoreboard players enable @s macro_action
+scoreboard players set @s dl_action 0
+scoreboard players enable @s dl_action
 
 execute unless data storage datalib:engine trigger_binds[0] run return 0
 

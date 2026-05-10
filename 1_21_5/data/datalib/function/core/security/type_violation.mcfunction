@@ -5,7 +5,7 @@
 # When powered by redstone it writes the message to the server log file,
 # providing a persistent audit trail outside the in-game log buffer.
 #
-# Block placement: y=-62 in AME forceloaded chunk (0,0).
+# Block placement: y=-62 in dataLib forceloaded chunk (0,0).
 # Placed, powered, and removed in the same tick.
 
 # ─── base type_violation (log + tellraw + kick) ──────────────────
