@@ -38,7 +38,7 @@ jobs:
       # 🔒 Repo lock — prevent running from wrong fork
       - name: Repo lock
         run: |
-          if [ "$GITHUB_REPOSITORY" != "runtoolkit/dataLib" ]; then
+          if [ "$GITHUB_REPOSITORY" != "runtoolkit/DataLib" ]; then
             echo "::error::This workflow may only run in runtoolkit/DataLib."
             exit 1
           fi
@@ -63,7 +63,6 @@ jobs:
             --exclude='README.md' \
             --exclude='version.json' \
             --exclude='dependencies.json' \
-            --exclude='.gitattributes' \
             ./ build/
 
       # 📂 Copy overlays
@@ -127,8 +126,8 @@ jobs:
       - name: Package datapack
         run: |
           cd build
-          zip -r ../macroEngine-${{ matrix.label }}.zip .
-          echo "Archive size: $(du -sh ../macroEngine-${{ matrix.label }}.zip | cut -f1)"
+          zip -r ../dataLib-${{ matrix.label }}.zip .
+          echo "Archive size: $(du -sh ../dataLib-${{ matrix.label }}.zip | cut -f1)"
 
       # 🚀 Upload as artifact
       - uses: actions/upload-artifact@v6
@@ -200,6 +199,6 @@ jobs:
 
           gh release create "$TAG" \
             --title "dataLib $TAG" \
-            --notes "**Full multi-version datapack build** (pack_format 101.1, all overlays included)." \
+            --notes "**Full multi-version datapack build** (pack_format 101, all overlays included)." \
             --latest \
             "$ZIP#dataLib-full.zip"
