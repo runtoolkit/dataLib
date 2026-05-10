@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -33,7 +33,7 @@ jobs:
     if: github.event_name != 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build dataLib-dp.zip (datapack only)
         run: |
@@ -76,14 +76,14 @@ jobs:
           cd _rp_build && zip -r ../dataLib-rp.zip .
 
       - name: Upload dataLib-dp.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: dataLib-dp
           path: dataLib-dp.zip
           retention-days: 30
 
       - name: Upload dataLib-rp.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: dataLib-rp
           path: dataLib-rp.zip
