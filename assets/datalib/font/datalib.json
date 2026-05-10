@@ -6,6 +6,48 @@
       "ascent": 8,
       "height": 9,
       "chars": ["\uE000"]
+    },
+    {
+      "type": "bitmap",
+      "file": "datalib:font/ok_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": ["\uE001"]
+    },
+    {
+      "type": "bitmap",
+      "file": "datalib:font/x_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": ["\uE002"]
+    },
+    {
+      "type": "bitmap",
+      "file": "datalib:font/warn_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": ["\uE003"]
+    },
+    {
+      "type": "bitmap",
+      "file": "datalib:font/lock_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": ["\uE004"]
+    },
+    {
+      "type": "bitmap",
+      "file": "datalib:font/freeze_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": ["\uE005"]
+    },
+    {
+      "type": "bitmap",
+      "file": "datalib:font/shield_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": ["\uE006"]
     }
   ]
 }
