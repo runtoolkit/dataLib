@@ -1,49 +1,49 @@
 {
   "datalib.load.success": {
     "sounds": [
-      { "name": "block.amethyst_block.chime", "volume": 0.6, "pitch": 1.2 }
+      { "name": "datalib:load_success", "volume": 0.6, "pitch": 1.0 }
     ],
     "subtitle": "datalib.subtitle.load_success"
   },
 
   "datalib.ui.confirm": {
     "sounds": [
-      { "name": "ui.button.click", "volume": 0.5, "pitch": 1.1 }
+      { "name": "datalib:ui_confirm", "volume": 0.5, "pitch": 1.0 }
     ],
     "subtitle": "datalib.subtitle.confirm"
   },
 
   "datalib.ui.error": {
     "sounds": [
-      { "name": "block.note_block.bass", "volume": 0.7, "pitch": 0.8 }
+      { "name": "datalib:ui_error", "volume": 0.7, "pitch": 1.0 }
     ],
     "subtitle": "datalib.subtitle.error"
   },
 
   "datalib.ui.freeze": {
     "sounds": [
-      { "name": "block.powder_snow.break", "volume": 0.9, "pitch": 0.9 }
+      { "name": "datalib:ui_freeze", "volume": 0.9, "pitch": 1.0 }
     ],
     "subtitle": "datalib.subtitle.freeze"
   },
 
   "datalib.ui.unfreeze": {
     "sounds": [
-      { "name": "block.glass.break", "volume": 0.7, "pitch": 1.3 }
+      { "name": "datalib:ui_unfreeze", "volume": 0.7, "pitch": 1.0 }
     ],
     "subtitle": "datalib.subtitle.unfreeze"
   },
 
   "datalib.perm.denied": {
     "sounds": [
-      { "name": "entity.villager.no", "volume": 0.6, "pitch": 1.0 }
+      { "name": "datalib:perm_denied", "volume": 0.6, "pitch": 1.0 }
     ],
     "subtitle": "datalib.subtitle.perm_denied"
   },
 
   "datalib.perm.granted": {
     "sounds": [
-      { "name": "entity.experience_orb.pickup", "volume": 0.5, "pitch": 1.2 }
+      { "name": "datalib:perm_granted", "volume": 0.5, "pitch": 1.0 }
     ],
     "subtitle": "datalib.subtitle.perm_granted"
   }
