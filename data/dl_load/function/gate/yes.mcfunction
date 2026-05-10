@@ -32,7 +32,7 @@ execute as @e[type=minecraft:marker,tag=datalib.gate_exec,limit=1] run say [DL G
 execute as @e[type=minecraft:marker,tag=datalib.gate_exec,limit=1] run kill @s
 
 # --- DISPATCH ---
-# Each executor reads its own fields from datalib:engine pending_gate via macro.
+# Each executor reads its own fields from datalib:engine pending_gate via datalib.
 # The 'with storage' pattern passes pending_gate fields as $(macro) parameters.
 
 # ban: requires {type:"ban", player:"...", reason:"..."}

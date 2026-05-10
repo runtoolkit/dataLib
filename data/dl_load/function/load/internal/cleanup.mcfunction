@@ -4,7 +4,7 @@ forceload remove -30000000 1600
 forceload remove 0 0
 
 scoreboard players reset @a dl_menu
-scoreboard players reset @a macro_run
+scoreboard players reset @a dl_run
 
 scoreboard players reset $tick dl.tmp
 scoreboard players reset $pq_depth dl.tmp
@@ -50,24 +50,24 @@ data remove storage datalib:engine rate_limit
 scoreboard objectives remove dl.tmp
 scoreboard objectives remove datalib.time
 scoreboard objectives remove dl_menu
-scoreboard objectives remove macro_run
-scoreboard objectives remove macro_action
-scoreboard objectives remove macro.tick_guard
-scoreboard objectives remove macro.dialog_load
+scoreboard objectives remove dl_run
+scoreboard objectives remove dl_action
+scoreboard objectives remove datalib.tick_guard
+scoreboard objectives remove datalib.dialog_load
 scoreboard objectives remove health
 scoreboard objectives remove dl.pre_version
 
-scoreboard objectives remove macro.Flags
-scoreboard objectives remove macro.hook_eat
-scoreboard objectives remove macro.hook_fish
-scoreboard objectives remove macro.state
+scoreboard objectives remove datalib.Flags
+scoreboard objectives remove datalib.hook_eat
+scoreboard objectives remove datalib.hook_fish
+scoreboard objectives remove datalib.state
 
-tag @a remove macro.dialog_opened
-tag @a remove macro.dialog_closed
+tag @a remove datalib.dialog_opened
+tag @a remove datalib.dialog_closed
 advancement revoke @a from datalib:hidden/root
 
 scoreboard objectives remove datalib.pid
-scoreboard objectives remove macro.rightClick
+scoreboard objectives remove datalib.rightClick
 data remove storage datalib:engine wand_binds
 data remove storage datalib:engine _wand_iter
 data remove storage datalib:engine _wand_current
@@ -78,30 +78,30 @@ data remove storage datalib:engine player_pids
 data remove storage datalib:engine _pid_seq
 
 # Hook module cleanup
-scoreboard objectives remove macro.hook_online
-scoreboard objectives remove macro.hook_deaths
-scoreboard objectives remove macro.hook_placed
+scoreboard objectives remove datalib.hook_online
+scoreboard objectives remove datalib.hook_deaths
+scoreboard objectives remove datalib.hook_placed
 scoreboard objectives remove datalib.hook_lvl
 scoreboard objectives remove datalib.hook_lvl_new
-scoreboard objectives remove macro.hook_sneak
-scoreboard objectives remove macro.hook_sprint
-scoreboard objectives remove macro.hook_elytra
-tag @a remove macro.hook_dead
-tag @a remove macro.hook_sneaking
-tag @a remove macro.hook_sprinting
-tag @a remove macro.hook_gliding
-scoreboard objectives remove macro.hook_tool_used
-scoreboard objectives remove macro.hook_item_used
-scoreboard objectives remove macro.hook_entity_killed
-scoreboard objectives remove macro.hook_using_item
-scoreboard objectives remove macro.hook_killed_by_arrow
-scoreboard objectives remove macro.hook_hero_of_the_village
-scoreboard objectives remove macro.hook_dim_changed
-scoreboard objectives remove macro.hook_traded
-scoreboard objectives remove macro.hook_jump
-scoreboard objectives remove macro.hook_open_chest
-scoreboard objectives remove macro.hook_drop
-scoreboard objectives remove macro.hook_target_hit
+scoreboard objectives remove datalib.hook_sneak
+scoreboard objectives remove datalib.hook_sprint
+scoreboard objectives remove datalib.hook_elytra
+tag @a remove datalib.hook_dead
+tag @a remove datalib.hook_sneaking
+tag @a remove datalib.hook_sprinting
+tag @a remove datalib.hook_gliding
+scoreboard objectives remove datalib.hook_tool_used
+scoreboard objectives remove datalib.hook_item_used
+scoreboard objectives remove datalib.hook_entity_killed
+scoreboard objectives remove datalib.hook_using_item
+scoreboard objectives remove datalib.hook_killed_by_arrow
+scoreboard objectives remove datalib.hook_hero_of_the_village
+scoreboard objectives remove datalib.hook_dim_changed
+scoreboard objectives remove datalib.hook_traded
+scoreboard objectives remove datalib.hook_jump
+scoreboard objectives remove datalib.hook_open_chest
+scoreboard objectives remove datalib.hook_drop
+scoreboard objectives remove datalib.hook_target_hit
 data remove storage datalib:engine hook_binds
 data remove storage datalib:engine _hook_iter
 data remove storage datalib:engine _hook_ctx

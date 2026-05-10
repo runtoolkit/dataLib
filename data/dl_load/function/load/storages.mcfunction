@@ -87,7 +87,7 @@ execute unless data storage datalib:engine wand_cooldowns run data modify storag
 # ─────────────────────────────────────────────────────────────────
 # Security module init (v5.0.0+)
 # BREAKING CHANGE: trust_players defaults to 0b — players must have
-# dl.perm_level explicitly set. macro.admin tag alone gives no access.
+# dl.perm_level explicitly set. datalib.admin tag alone gives no access.
 #
 # Fields (all preserved across reloads via 'unless data' guards):
 #   trust_players         0b = players not trusted (default, breaking)
