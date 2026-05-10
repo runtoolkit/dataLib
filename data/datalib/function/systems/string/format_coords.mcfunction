@@ -36,4 +36,4 @@ execute store result storage datalib:output x int 1 run scoreboard players get $
 execute store result storage datalib:output y int 1 run scoreboard players get $fc_y dl.tmp
 execute store result storage datalib:output z int 1 run scoreboard players get $fc_z dl.tmp
 
-$tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"string/format_coords ","color":"aqua"},{"text":"(","color":"#555555"},{"storage":"datalib:output","nbt":"x","color":"#aaffaa"},{"text":", ","color":"#555555"},{"storage":"datalib:output","nbt":"y","color":"#aaffaa"},{"text":", ","color":"#555555"},{"storage":"datalib:output","nbt":"z","color":"#aaffaa"},{"text":")","color":"#555555"}]
+tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"string/format_coords ","color":"aqua"},{"text":"(","color":"#555555"},{"storage":"datalib:output","nbt":"x","color":"#aaffaa"},{"text":", ","color":"#555555"},{"storage":"datalib:output","nbt":"y","color":"#aaffaa"},{"text":", ","color":"#555555"},{"storage":"datalib:output","nbt":"z","color":"#aaffaa"},{"text":")","color":"#555555"}]

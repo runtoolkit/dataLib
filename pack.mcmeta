@@ -204,18 +204,5 @@
         ]
       }
     ]
-  },
-  "resource_pack": {
-    "pack_format": 46,
-    "supported_formats": {
-      "min_inclusive": 22,
-      "max_inclusive": 999
-    },
-    "description": [
-      {
-        "text": "dataLib assets — TR/EN/DE + custom sounds & font",
-        "color": "#00ccff"
-      }
-    ]
   }
 }

@@ -17,7 +17,7 @@
 # ─────────────────────────────────────────────────────────────────
 
 # Step 1 — count all matching entities
-$scoreboard players set $rnd_n dl.tmp 0
+scoreboard players set $rnd_n dl.tmp 0
 $execute as @e[type=$(type),tag=$(tag)] run scoreboard players add $rnd_n dl.tmp 1
 
 # No entities → nothing to do
