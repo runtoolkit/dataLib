@@ -6,5 +6,6 @@ execute as @a if score @s datalib.pid = $pc_pid dl.tmp run execute if entity @s[
 
 $execute as @a if score @s datalib.pid = $pc_pid dl.tmp run execute if entity @s[tag=perm.$(perm)] run return 1
 
-$execute as @a if score @s datalib.pid = $pc_pid dl.tmp run tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ ","color":"red"},{"text":"$(perm)","color":"yellow"},{"text":" — you don't have this permission.","color":"red"}]
+$execute as @a if score @s datalib.pid = $pc_pid dl.tmp run playsound datalib:perm.denied master @s ~ ~ ~ 1 1
+$execute as @a if score @s datalib.pid = $pc_pid dl.tmp run tellraw @s ["",{"text":"\uE000","font":"datalib:datalib","color":"#00AAAA"},{"text":" ","color":"#00AAAA"},{"text":"✘ ","color":"red"},{"text":"$(perm)","color":"yellow"},{"text":" ","color":"red"},{"translate":"datalib.msg.no_perm","with":[""],"color":"red"}]
 return 0

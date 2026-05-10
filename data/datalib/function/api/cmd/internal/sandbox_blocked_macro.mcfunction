@@ -10,5 +10,6 @@ $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true
 data remove storage datalib:input message
 data remove storage datalib:input level
 data remove storage datalib:input color
-execute if entity @s[type=minecraft:player] run tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ ","color":"red"},{"text":"Command blocked in sandbox mode.","color":"red"}]
+execute if entity @s[type=minecraft:player] run playsound datalib:ui.error master @s ~ ~ ~ 0.7 0.8
+execute if entity @s[type=minecraft:player] run tellraw @s ["",{"text":"\uE000","font":"datalib:datalib","color":"#00AAAA"},{"text":" ","color":"#00AAAA"},{"text":"✘ ","color":"red"},{"translate":"datalib.msg.sandbox_blocked","color":"red"}]
 #execute if entity @s[type=minecraft:player] run kick @s [DL] Sandbox violation — command blocked

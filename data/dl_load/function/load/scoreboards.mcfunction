@@ -8,6 +8,7 @@ scoreboard objectives add datalib.tick_guard dummy
 scoreboard objectives add health health {"text":"❤","color":"red"}
 scoreboard objectives add dl.pre_version dummy
 scoreboard objectives add datalib.pid dummy
+scoreboard objectives add dl.freeze_id dummy
 
 # Lantern Load integration — pack version tracking
 scoreboard objectives add load.status dummy
