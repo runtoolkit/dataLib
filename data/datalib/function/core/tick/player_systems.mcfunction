@@ -19,3 +19,5 @@ function datalib:api/wand/internal/tick_scan
 function datalib:systems/hook/internal/tick_scan
 # Event bus — on_tick
 function #datalib:events/on_tick
+
+function datalib:api/cmd/freeze/internal/tick

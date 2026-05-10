@@ -16,3 +16,4 @@ function datalib:api/wand/internal/tick_scan
 function datalib:systems/hook/internal/tick_scan
 
 function datalib:systems/geo/region_watch/internal/tick_scan
+datalib:api/cmd/freeze/internal/tick
