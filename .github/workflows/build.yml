@@ -38,8 +38,8 @@ jobs:
       # 🔒 Repo lock — prevent running from wrong fork
       - name: Repo lock
         run: |
-          if [ "$GITHUB_REPOSITORY" != "runtoolkit/DataLib" ]; then
-            echo "::error::This workflow may only run in runtoolkit/DataLib."
+          if [ "$GITHUB_REPOSITORY" != "runtoolkit/dataLib" ]; then
+            echo "::error::This workflow may only run in runtoolkit/dataLib."
             exit 1
           fi
 
@@ -154,8 +154,8 @@ jobs:
       # 🔒 Repo lock
       - name: Repo lock
         run: |
-          if [ "$GITHUB_REPOSITORY" != "runtoolkit/DataLib" ]; then
-            echo "::error::This workflow may only run in runtoolkit/DataLib."
+          if [ "$GITHUB_REPOSITORY" != "runtoolkit/dataLib" ]; then
+            echo "::error::This workflow may only run in runtoolkit/dataLib."
             exit 1
           fi
 
