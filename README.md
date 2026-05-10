@@ -14,20 +14,6 @@
 
 ---
 
-## 📚 Documentation
-
-Full API reference, guides, and examples are available in the **[GitHub Wiki](../../wiki)**.
-
-| Page | Description |
-|------|-------------|
-| [Installation](../../wiki/Installation) | How to install and load the datapack |
-| [Storage Architecture](../../wiki/Storage-Architecture) | `datalib:engine`, `datalib:input`, `datalib:output` layout |
-| [Overlay System](../../wiki/Overlay-System) | Multi-version overlay structure |
-| [Admin Guide](../../wiki/Admin-Guide) | `macro.admin` tag, permissions, debug tools |
-| [Changelog](../../wiki/Changelog) | Full version history |
-
----
-
 ## 📦 Installation
 
 ```
@@ -130,27 +116,6 @@ function datalib:core/lib/string/replace
 # datalib:output string.result → "Hello Everyone"
 ```
 
----
-
-## 📡 API Modules
-
-| Module | Wiki |
-|--------|------|
-| 🕐 Cooldown | [API-Cooldown](../../wiki/API-Cooldown) |
-| 📡 Event | [API-Event](../../wiki/API-Event) |
-| 🏳️ Flag & State | [API-Flag-State](../../wiki/API-Flag-State) |
-| 🪝 Hook | [API-Hook](../../wiki/API-Hook) |
-| 🖱️ Interaction | [API-Interaction](../../wiki/API-Interaction) |
-| 🎒 Inventory | [API-Inventory](../../wiki/API-Inventory) |
-| 📚 Library | [API-Library](../../wiki/API-Library) |
-| 🔢 Math | [API-Math](../../wiki/API-Math) |
-| 🔐 Permission | [API-Permission](../../wiki/API-Permission) |
-| 👤 Player | [API-Player](../../wiki/API-Player) |
-| 🔤 String | [API-String](../../wiki/API-String) |
-| 🪄 Wand | [API-Wand](../../wiki/API-Wand) |
-| 🌍 World & Geo | [API-World-Geo](../../wiki/API-World-Geo) |
-
----
 
 ## 💬 Support
 
