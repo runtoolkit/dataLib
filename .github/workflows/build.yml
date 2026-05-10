@@ -38,7 +38,7 @@ jobs:
       # 🔒 Repo lock — prevent running from wrong fork
       - name: Repo lock
         run: |
-          if [ "$GITHUB_REPOSITORY" != "runtoolkit/DataLib" ]; then
+          if [ "$GITHUB_REPOSITORY" != "runtoolkit/dataLib" ]; then
             echo "::error::This workflow may only run in runtoolkit/DataLib."
             exit 1
           fi
@@ -60,8 +60,10 @@ jobs:
             --exclude='.github' \
             --exclude='.gitattributes' \
             --exclude='.gitignore' \
-            --exclude='LICENSE' \
             --exclude='README.md' \
+            --exclude='version.json' \
+            --exclude='dependencies.json' \
+            --exclude='.gitattributes' \
             ./ build/
 
       # 📂 Copy overlays
@@ -190,14 +192,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="${{ steps.ver.outputs.version }}"
-          ZIP="dist/macroEngine-full.zip"
+          ZIP="dist/dataLib-full.zip"
 
           # Delete existing tag if it exists, otherwise continue
           gh release delete "$TAG" --yes 2>/dev/null || true
           git push origin ":refs/tags/$TAG" 2>/dev/null || true
 
           gh release create "$TAG" \
-            --title "DataLib $TAG" \
+            --title "dataLib $TAG" \
             --notes "**Full multi-version datapack build** (pack_format 101.1, all overlays included)." \
             --latest \
             "$ZIP#dataLib-full.zip"
