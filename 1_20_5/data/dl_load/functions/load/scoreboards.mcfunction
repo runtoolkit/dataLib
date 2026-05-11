@@ -60,3 +60,17 @@ scoreboard objectives add load.status dummy
 # Version calculation constants (for Lantern Load integration)
 scoreboard players set #10000 dl.tmp 10000
 scoreboard players set #100 dl.tmp 100
+
+# Config scoreboard — fast integer config values
+scoreboard objectives add datalib.config dummy
+
+# State scoreboard — per-player state machine
+scoreboard objectives add datalib.state dummy
+
+# Security module — per-player permission level
+# 0=no access  1=basic  2=standard  3=elevated($$(cmd))  4=super
+scoreboard objectives add dl.perm_level dummy
+
+# Log level system: 0=off 1=error 2=warn 3=info 4=debug
+scoreboard objectives add dl.log_level dummy
+execute unless score #dl.log_level dl.log_level matches 0.. run scoreboard players set #dl.log_level dl.log_level 3

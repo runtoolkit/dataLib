@@ -62,3 +62,18 @@ execute unless data storage datalib:engine security.multi_type_allowlist run dat
 
 data remove storage datalib:engine multiCommands
 data modify storage datalib:engine multiCommands set value {type:"",active:0b}
+
+# Wand cooldown module — separate storage
+execute unless data storage datalib:engine wand_cooldowns run data modify storage datalib:engine wand_cooldowns set value {}
+
+# Security v5.1.0+ migration: sandbox_allowlist list → compound
+execute if data storage datalib:engine security.sandbox_allowlist[] run data modify storage datalib:engine security.sandbox_allowlist set value {}
+execute unless data storage datalib:engine security.sandbox_allowlist run data modify storage datalib:engine security.sandbox_allowlist set value {}
+execute unless data storage datalib:engine security.multi_type_allowlist run data modify storage datalib:engine security.multi_type_allowlist set value {multi_cmd:1b,multi_cmd_adv:1b}
+
+# Module toggle init
+execute unless data storage datalib:engine modules.hook run data modify storage datalib:engine modules.hook set value 1b
+execute unless data storage datalib:engine modules.interaction run data modify storage datalib:engine modules.interaction set value 1b
+execute unless data storage datalib:engine modules.perm run data modify storage datalib:engine modules.perm set value 1b
+execute unless data storage datalib:engine modules.wand run data modify storage datalib:engine modules.wand set value 1b
+execute unless data storage datalib:engine modules.geo run data modify storage datalib:engine modules.geo set value 1b

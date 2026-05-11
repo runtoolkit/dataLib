@@ -1,3 +1,12 @@
-$data modify storage datalib:engine interaction_binds.attack append value {tag:"$(tag)", func:"$(func)"}
-
-$tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"interaction/bind_attack ","color":"aqua"},{"text":"✔ ","color":"green"},{"text":"$(tag)","color":"white"},{"text":" → ","color":"#555555"},{"text":"$(func)","color":"aqua"}]
+# datalib:api/interaction/bind_attack
+# Binds a function to an interaction entity attack event.
+#
+# INPUT:
+#   datalib:input tag  — entity tag to match
+#   datalib:input func — function to call on attack
+#
+# USAGE:
+#   data modify storage datalib:input tag set value "my_interact"
+#   data modify storage datalib:input func set value "mypack:on_attack"
+#   function datalib:api/interaction/bind_attack with storage datalib:input {}
+function datalib:api/interaction/internal/bind_attack_do with storage datalib:input {}

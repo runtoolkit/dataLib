@@ -1,13 +1,10 @@
 # ─────────────────────────────────────────────────────────────────
 # datalib:api/wand/register_cmd
-# Binds a command to the wand (raw command instead of func).
+# Binds a raw command to a wand (carrot_on_a_stick).
 #
-# INPUT:
-#   $(tag) → custom_data tag name
-#   $(cmd) → raw command to run
+# INPUT (storage datalib:input):
+#   tag → custom_data tag name
+#   cmd → raw command to run
 # ─────────────────────────────────────────────────────────────────
-
 execute unless data storage datalib:engine wand_binds run data modify storage datalib:engine wand_binds set value []
-
-$data modify storage datalib:engine wand_binds append value {tag:"$(tag)", cmd:"$(cmd)"}
-$tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"wand/register_cmd ","color":"aqua"},{"text":"✔ ","color":"green"},{"text":"$(tag)","color":"white"},{"text":" → cmd","color":"#555555"}]
+function datalib:api/wand/internal/register_cmd_do with storage datalib:input {}
