@@ -2,8 +2,11 @@ name: Generate Build.py
 
 on:
   push:
-    branches: [workflows]
+    branches:
+      - workflows
+
   pull_request:
+
   workflow_dispatch:
 
 permissions:
@@ -17,6 +20,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.ref }}
           fetch-depth: 0
 
       - name: Setup Python
@@ -48,4 +52,7 @@ jobs:
           git diff --cached --quiet && exit 0
 
           git commit -m "Auto generate build.py"
-          git push
+
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+
+          git push origin HEAD:$BRANCH_NAME
