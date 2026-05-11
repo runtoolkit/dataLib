@@ -23,4 +23,4 @@ tag @s add datalib.frozen
 
 # Notify and play sound
 playsound datalib:ui.freeze master @s ~ ~ ~ 0.9 0.9
-tellraw @s ["",{"text":"\uE000","font":"datalib:datalib"datalib:datalib","color":"#00AAAA"},{"text":" ","color":"#00AAAA"},{"translate":"datalib.msg.freeze","color":"#00aaff","bold":true}]
+tellraw @s ["",{"text":"\uE000","color":"#00AAAA"},{"text":" ","color":"#00AAAA"},{"translate":"datalib.msg.freeze","color":"#00aaff","bold":true}]
