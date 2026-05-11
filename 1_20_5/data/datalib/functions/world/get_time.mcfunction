@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────
-# macro:world/get_time
+# datalib:world/get_time
 # Reads the current world time and writes it to datalib:output.
 #
 # OUTPUT: datalib:output daytime → ticks within the current day (0–23999)

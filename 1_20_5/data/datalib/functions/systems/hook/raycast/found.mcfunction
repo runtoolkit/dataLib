@@ -5,10 +5,10 @@ scoreboard players add @s macro.hook_placed 1
 # Write to hook event storage (other systems can listen)
 # Save block coordinates (via marker summon from positioned context)
 summon minecraft:marker ~ ~ ~ {Tags:["macro.hook_block_pos"]}
-execute store result storage datalib:hook placed.x int 1 run data get entity @e[type=minecraft:marker,tag=macro.hook_block_pos,limit=1] Pos[0]
-execute store result storage datalib:hook placed.y int 1 run data get entity @e[type=minecraft:marker,tag=macro.hook_block_pos,limit=1] Pos[1]
-execute store result storage datalib:hook placed.z int 1 run data get entity @e[type=minecraft:marker,tag=macro.hook_block_pos,limit=1] Pos[2]
-kill @e[type=minecraft:marker,tag=macro.hook_block_pos,limit=1]
+execute store result storage datalib:hook placed.x int 1 run data get entity @e[type=minecraft:marker,tag=datalib.hook_block_pos,limit=1] Pos[0]
+execute store result storage datalib:hook placed.y int 1 run data get entity @e[type=minecraft:marker,tag=datalib.hook_block_pos,limit=1] Pos[1]
+execute store result storage datalib:hook placed.z int 1 run data get entity @e[type=minecraft:marker,tag=datalib.hook_block_pos,limit=1] Pos[2]
+kill @e[type=minecraft:marker,tag=datalib.hook_block_pos,limit=1]
 
 # Timestamp kaydet (datalib.time skorundan)
 execute store result storage datalib:hook placed.tick int 1 run scoreboard players get #time datalib.time

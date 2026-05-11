@@ -53,20 +53,20 @@ Used with `execute if predicate <id>`.
 
 | Predicate | Description |
 |---|---|
-| `macro:is_survival` | Player is in survival mode |
+| `datalib:is_survival` | Player is in survival mode |
 | `datalib:is_creative` | Player is in creative mode |
-| `macro:has_empty_mainhand` | Main hand is empty |
-| `macro:is_full_health` | Player is at full health (20 HP) |
+| `datalib:has_empty_mainhand` | Main hand is empty |
+| `datalib:is_full_health` | Player is at full health (20 HP) |
 | `datalib:is_sneaking` | Player is sneaking |
 | `datalib:is_sprinting` | Player is sprinting |
 | `datalib:is_burning` | Player is on fire |
 | `datalib:is_on_ground` | Player is on the ground |
-| `macro:is_daytime` | Daytime (0–12000 ticks) |
-| `macro:is_raining` | It is raining |
-| `macro:is_thundering` | There is a thunderstorm |
-| `macro:in_overworld` | Player is in the Overworld |
-| `macro:in_nether` | Player is in the Nether |
-| `macro:in_end` | Player is in the End |
+| `datalib:is_daytime` | Daytime (0–12000 ticks) |
+| `datalib:is_raining` | It is raining |
+| `datalib:is_thundering` | There is a thunderstorm |
+| `datalib:in_overworld` | Player is in the Overworld |
+| `datalib:in_nether` | Player is in the Nether |
+| `datalib:in_end` | Player is in the End |
 
 Full reference: [Predicate Reference](../../wiki/Predicate-Reference)
 

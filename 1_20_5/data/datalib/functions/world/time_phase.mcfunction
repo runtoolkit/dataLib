@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────
-# macro:world/time_phase
+# datalib:world/time_phase
 # Classifies the current daytime tick into a named phase and
 # provides boolean flags for common time-of-day checks.
 #

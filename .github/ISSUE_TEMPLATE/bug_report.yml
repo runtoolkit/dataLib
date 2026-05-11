@@ -57,8 +57,8 @@ body:
     id: affected_functions
     attributes:
       label: Affected Functions
-      description: Which `macro:` function(s) are affected?
-      placeholder: "e.g.: macro:flag/toggle_system, macro:lib/tick_guard"
+      description: Which `datalib:` function(s) are affected?
+      placeholder: "e.g.: datalib:flag/toggle_system, datalib:lib/tick_guard"
   - type: textarea
     id: logs
     attributes:

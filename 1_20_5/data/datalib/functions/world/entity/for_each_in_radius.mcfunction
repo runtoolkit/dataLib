@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────
-# macro:world/entity/for_each_in_radius
+# datalib:world/entity/for_each_in_radius
 # Runs a function as every entity of a given type within radius
 # of the named player.
 #
