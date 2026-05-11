@@ -1,6 +1,6 @@
 # Blok bulundu!
 # Increment hook.placed scoreboard
-scoreboard players add @s macro.hook_placed 1
+scoreboard players add @s datalib.hook_placed 1
 
 # Write to hook event storage (other systems can listen)
 # Save block coordinates (via marker summon from positioned context)
@@ -30,7 +30,7 @@ execute as @s run function datalib:systems/hook/internal/fire with storage datal
 data remove storage datalib:engine _hook_fire_tmp
 
 # Legacy event system support (if present)
-execute if score #m_hook macro.Flags matches 1.. run function datalib:events/fire {id:"hook.placed"}
+execute if score #m_hook datalib.Flags matches 1.. run function datalib:events/fire {id:"hook.placed"}
 
 # Cleanup: reset counter
 scoreboard players reset @s dl.tmp

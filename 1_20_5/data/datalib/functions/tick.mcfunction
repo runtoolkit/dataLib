@@ -17,4 +17,4 @@ execute if data storage datalib:engine tick{paused:1b} run return 0
 function datalib:core/tick/dispatch
 
 # Online player count — kept for compatibility
-execute store result score #online macro.onlinePlayers if entity @a
+execute store result score #online datalib.onlinePlayers if entity @a
