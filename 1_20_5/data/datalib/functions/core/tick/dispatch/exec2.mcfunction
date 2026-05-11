@@ -8,4 +8,4 @@
 execute if data storage datalib:tick_work channel{condition:""} run return 0
 
 $data modify storage datalib:engine _dispatch.func set value "$(fn)"
-$execute as @a[limit=1] at @s if predicate $(condition) run function #macro:internal/dispatch
+$execute as @a[limit=1] at @s if predicate $(condition) run function #datalib:internal/dispatch

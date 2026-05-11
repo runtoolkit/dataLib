@@ -16,6 +16,6 @@ data modify storage datalib:output ran set value 1b
 $data modify storage datalib:engine once_per_player.$(player).$(key) set value 1b
 
 $data modify storage datalib:engine _dispatch.func set value "$(func)"
-function #macro:internal/dispatch
+function #datalib:internal/dispatch
 
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"lib/once_per_player ","color":"aqua"},{"text":"$(player):$(key) ","color":"white"},{"text":"✔ ran for the first time","color":"green"}]

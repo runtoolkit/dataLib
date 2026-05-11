@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────
-# datalib:engine/macro/with_function [MACRO]
+# datalib:api/macro/with_function [MACRO]
 #
 # Runs a provider (source) function; passes the data that function
 # wrote to datalib:engine _macro_pipe storage as macro variable source

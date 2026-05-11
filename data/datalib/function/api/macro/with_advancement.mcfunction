@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────
-# datalib:engine/macro/with_advancement [MACRO]
+# datalib:api/macro/with_advancement [MACRO]
 #
 # Checks whether a player has completed a specific advancement and
 # injects the boolean result as a named macro variable into the target function.

@@ -3,4 +3,4 @@
 # @s = player leaving the region
 
 $data modify storage datalib:engine _dispatch.func set value "$(on_leave)"
-function #macro:internal/dispatch
+function #datalib:internal/dispatch
