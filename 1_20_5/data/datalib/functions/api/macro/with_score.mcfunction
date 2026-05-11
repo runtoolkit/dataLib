@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────
-# datalib:engine/macro/with_score [MACRO]
+# datalib:api/macro/with_score [MACRO]
 #
 # Reads a player's scoreboard value and injects it as a named
 # macro variable into the target function.

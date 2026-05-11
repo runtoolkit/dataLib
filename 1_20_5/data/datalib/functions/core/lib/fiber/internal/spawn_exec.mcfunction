@@ -9,6 +9,6 @@ $data modify storage datalib:engine fibers.$(id) set value {alive:1b}
 
 # Run first step via central dispatch
 $data modify storage datalib:engine _dispatch.func set value "$(func)"
-function #macro:internal/dispatch
+function #datalib:internal/dispatch
 
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"lib/fiber/spawn ","color":"aqua"},{"text":"[start] ","color":"green"},{"text":"$(id)","color":"white"},{"text":" → ","color":"#555555"},{"text":"$(func)","color":"aqua"}]

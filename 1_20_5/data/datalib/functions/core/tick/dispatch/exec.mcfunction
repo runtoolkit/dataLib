@@ -5,4 +5,4 @@
 # condition:"" → always run (no predicate check)
 
 $data modify storage datalib:engine _dispatch.func set value "$(fn)"
-execute if data storage datalib:tick_work channel{condition:""} run function #macro:internal/dispatch
+execute if data storage datalib:tick_work channel{condition:""} run function #datalib:internal/dispatch
