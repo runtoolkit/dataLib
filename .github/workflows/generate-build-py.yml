@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Generate Build Script
         run: |
-          python3 .github/scripts/generate_build-py.py
+          python3 .github/scripts/generate_buid-py.py
 
       - name: Upload Build.py Artifact
         uses: actions/upload-artifact@v7
