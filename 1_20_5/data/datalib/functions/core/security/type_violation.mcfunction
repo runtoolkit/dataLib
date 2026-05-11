@@ -5,6 +5,7 @@
 # NOTE: test_block server-log (added in 1.21.5) is NOT available on this version.
 # Context: @s = the player who triggered the violation.
 
+# Log entry
 data modify storage datalib:input message set value "[Security] type_violation — command type not in allowlist"
 data modify storage datalib:input level set value "ERROR"
 data modify storage datalib:input color set value "red"
@@ -13,6 +14,11 @@ data remove storage datalib:input message
 data remove storage datalib:input level
 data remove storage datalib:input color
 
+# Notify player
 tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ ","color":"red"},{"text":"Security violation: command type not permitted in sandbox mode.","color":"red"}]
+
+# Notify debug admins
 tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"TYPE VIOLATION ","color":"red","bold":true},{"selector":"@s","color":"gold"},{"text":" — blocked (not in allowlist)","color":"red"}]
+
+# Kick the player from server (requires function-level perm >= 3)
 #execute if entity @s[type=minecraft:player] run kick @s [DL] Security violation — command type not in allowlist
