@@ -20,7 +20,7 @@
 1. Place dataLib-v5.1.0 into <world>/datapacks/
 2. /reload
 3. /function dl_load:load/yes
-4. /tag @s add macro.admin
+4. /tag @s add datalib.admin
 ```
 
 ---

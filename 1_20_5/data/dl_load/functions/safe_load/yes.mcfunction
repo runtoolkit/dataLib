@@ -4,7 +4,7 @@
 #
 # PRECAUTIONS (over load/yes):
 #   1. Gate must be open (#pending == 1)
-#   2. Player caller: must have macro.admin tag
+#   2. Player caller: must have datalib.admin tag
 #   3. Player caller: must have dl.perm_level >= 4 (super-admin)
 #   4. Verifies engine is NOT already loaded
 #   5. Logs all checks to server output via marker
@@ -20,7 +20,7 @@ execute unless entity @s[type=minecraft:player] run execute as @e[type=minecraft
 execute unless entity @s[type=minecraft:player] run function dl_load:load/yes
 execute unless entity @s[type=minecraft:player] run return 0
 
-execute unless entity @s[tag=datalib.admin] run tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ safe_load/yes denied — macro.admin tag required.","color":"red"}]
+execute unless entity @s[tag=datalib.admin] run tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ safe_load/yes denied — datalib.admin tag required.","color":"red"}]
 execute unless entity @s[tag=datalib.admin] run return 0
 
 execute unless score @s dl.perm_level matches 4.. run tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ safe_load/yes denied — dl.perm_level >= 4 required.","color":"red"}]
@@ -32,7 +32,7 @@ execute if data storage datalib:engine global{loaded:1b} run return 0
 summon minecraft:marker ~ ~ ~ {Tags:["datalib.safe_gate"],CustomName:'{"text":"DL"}'}
 execute as @e[type=minecraft:marker,tag=datalib.safe_gate,limit=1] run say [DL SAFE GATE] ============================================
 execute as @e[type=minecraft:marker,tag=datalib.safe_gate,limit=1] run say [DL SAFE GATE] safe_load/yes — all security checks PASSED.
-execute as @e[type=minecraft:marker,tag=datalib.safe_gate,limit=1] run say [DL SAFE GATE]   macro.admin tag: OK
+execute as @e[type=minecraft:marker,tag=datalib.safe_gate,limit=1] run say [DL SAFE GATE]   datalib.admin tag: OK
 execute as @e[type=minecraft:marker,tag=datalib.safe_gate,limit=1] run say [DL SAFE GATE]   perm_level >= 4: OK
 execute as @e[type=minecraft:marker,tag=datalib.safe_gate,limit=1] run say [DL SAFE GATE]   engine not loaded: OK
 execute as @e[type=minecraft:marker,tag=datalib.safe_gate,limit=1] run say [DL SAFE GATE]   Delegating to load/yes...
