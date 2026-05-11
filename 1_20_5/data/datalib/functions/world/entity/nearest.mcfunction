@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────
-# macro:world/entity/nearest
+# datalib:world/entity/nearest
 # Finds the nearest entity of a given type to the named player and
 # runs the given function as that entity (at its position).
 # If no entity of the type exists within radius, does nothing.

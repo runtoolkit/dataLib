@@ -14,8 +14,8 @@ execute as @a[scores={macro.hook_deaths=1..}] run function datalib:systems/hook/
 execute as @a[scores={macro.hook_deaths=1..}] run scoreboard players set @s macro.hook_deaths 0
 
 # player_respawn — was dead (dead flag set) but alive again
-execute as @a[tag=macro.hook_dead,nbt={DeathTime:0s}] run function datalib:systems/hook/internal/on_player_respawn
-execute as @a[tag=macro.hook_dead,nbt={DeathTime:0s}] run tag @s remove macro.hook_dead
+execute as @a[tag=datalib.hook_dead,nbt={DeathTime:0s}] run function datalib:systems/hook/internal/on_player_respawn
+execute as @a[tag=datalib.hook_dead,nbt={DeathTime:0s}] run tag @s remove macro.hook_dead
 execute as @a[nbt={DeathTime:1s}] run tag @s add macro.hook_dead
 
 # level_up — XP level increase

@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────
-# macro:version
+# datalib:version
 # Shows AME version info to the calling player.
 # Usage: /function datalib:version
 # ─────────────────────────────────────────────
