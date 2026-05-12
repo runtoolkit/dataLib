@@ -1,3 +1,6 @@
 {
-  "values": []
+  "values": [
+    "datalib:systems/security/menu",
+    "datalib:systems/dev_settings/menu"
+  ]
 }

@@ -25,6 +25,8 @@ execute as @e[type=minecraft:marker,tag=datalib.stage3,limit=1] run say Loading 
 execute as @e[type=minecraft:marker,tag=datalib.stage3,limit=1] run kill @s
 function dl_load:load/storages
 
+function dl_load:load/dev_settings
+
 function dl_load:load/other
 
 data modify storage datalib:engine global.loaded set value 1b
