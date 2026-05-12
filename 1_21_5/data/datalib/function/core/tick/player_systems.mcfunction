@@ -1,6 +1,6 @@
-execute as @a[scores={datalib_menu=1..}] run function datalib:menu
-scoreboard players set @a[scores={datalib_menu=1..}] datalib_menu 0
-scoreboard players enable @a[scores={datalib_menu=-1..}] datalib_menu
+execute as @a[scores={dl_menu=1..}] run function datalib:menu
+scoreboard players set @a[scores={dl_menu=1..}] dl_menu 0
+scoreboard players enable @a[scores={dl_menu=-1..}] dl_menu
 
 execute as @a[scores={dl_run=1..}] run function #datalib:run
 scoreboard players set @a[scores={dl_run=1..}] dl_run 0
