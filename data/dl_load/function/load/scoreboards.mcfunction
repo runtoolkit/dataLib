@@ -1,6 +1,6 @@
 scoreboard objectives add dl.tmp dummy
 scoreboard objectives add datalib.time dummy
-scoreboard objectives add dl_menu trigger
+scoreboard objectives add datalib_menu trigger
 scoreboard objectives add dl_run trigger
 scoreboard objectives add dl_action trigger
 scoreboard objectives add datalib.dialog_load dummy
@@ -9,6 +9,7 @@ scoreboard objectives add health health {"text":"❤","color":"red"}
 scoreboard objectives add dl.pre_version dummy
 scoreboard objectives add datalib.pid dummy
 scoreboard objectives add dl.freeze_id dummy
+scoreboard objectives add datalib.onlinePlayers dummy
 
 # Lantern Load integration — pack version tracking
 scoreboard objectives add load.status dummy

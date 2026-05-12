@@ -18,5 +18,5 @@
 # function datalib:api/wand/give_custom with storage datalib:input {}
 # ─────────────────────────────────────────────────────────────────
 
-$give @a[name=$(player),limit=1] minecraft:carrot_on_a_stick[minecraft:custom_data={wand:"$(tag)"},minecraft:item_name='{"text":"$(name)"}',minecraft:enchantment_glint_override=true] $(count)
+$give @a[name=$(player),limit=1] minecraft:carrot_on_a_stick[minecraft:custom_data={wand:"$(tag)"},minecraft:item_name='{"text":"$(name)"}',minecraft:enchantment_glint_override=$(enchantmentGlintOverride)] $(count)
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"wand/give_custom ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"#555555"},{"text":"$(item)","color":"aqua"},{"text":" [$(tag)]","color":"#555555"}]

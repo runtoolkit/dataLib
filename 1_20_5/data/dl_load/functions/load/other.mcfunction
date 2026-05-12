@@ -8,7 +8,7 @@ data remove storage datalib:input func
 data remove storage datalib:input interval
 data remove storage datalib:input key
 
-scoreboard players enable @a[tag=datalib.admin] dl_menu
+scoreboard players enable @a[tag=datalib.admin] datalib_menu
 scoreboard players enable @a[tag=datalib.admin] datalib_run
 scoreboard players enable @a[tag=datalib.admin] datalib_action
 
