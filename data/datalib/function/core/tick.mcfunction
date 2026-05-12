@@ -17,3 +17,5 @@ execute store result score #online datalib.onlinePlayers if entity @a
 execute if data storage datalib:engine tick{paused:1b} run return 0
 
 execute as @a run function datalib:core/tick/dispatch
+
+execute as @a[scores={datalib_settingsBook=1..}] at @s run function datalib:core/handle_trigger

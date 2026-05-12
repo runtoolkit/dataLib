@@ -3,7 +3,7 @@ schedule clear datalib:core/lib/sync_tick
 forceload remove -30000000 1600
 forceload remove 0 0
 
-scoreboard players reset @a dl_menu
+scoreboard players reset @a datalib_menu
 scoreboard players reset @a dl_run
 
 scoreboard players reset $tick dl.tmp
@@ -49,7 +49,7 @@ data remove storage datalib:engine rate_limit
 
 scoreboard objectives remove dl.tmp
 scoreboard objectives remove datalib.time
-scoreboard objectives remove dl_menu
+scoreboard objectives remove datalib_menu
 scoreboard objectives remove dl_run
 scoreboard objectives remove dl_action
 scoreboard objectives remove datalib.tick_guard
