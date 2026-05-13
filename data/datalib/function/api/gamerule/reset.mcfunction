@@ -12,8 +12,8 @@
 execute unless function datalib:debug/tools/utils/check_all run return 0
 
 # Normalize
-data modify storage stringlib:input replace.String  set from storage datalib:input rule
-data modify storage stringlib:input replace.Find    set value " "
+data modify storage stringlib:input replace.String set from storage datalib:input rule
+data modify storage stringlib:input replace.Find set value " "
 data modify storage stringlib:input replace.Replace set value "_"
 function stringlib:util/replace
 data modify storage datalib:input _gamerule_norm set from storage stringlib:output replace
