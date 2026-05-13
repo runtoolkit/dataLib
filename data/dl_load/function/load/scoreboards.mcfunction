@@ -77,6 +77,9 @@ execute unless score #dl.log_level dl.log_level matches 0.. run scoreboard playe
 # Config scoreboard — fast integer config values (no storage lookup needed)
 scoreboard objectives add datalib.config dummy
 
+# Gamerule module — scratch scoreboard for numeric range checks
+scoreboard objectives add dl.gamerule dummy
+
 # State scoreboard — per-player state machine (0=idle 1=combat 2=menu ...)
 scoreboard objectives add datalib.state dummy
 
