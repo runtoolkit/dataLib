@@ -6,7 +6,7 @@ data modify storage datalib:output data set from storage datalib:engine
 execute unless data storage datalib:output data.global{loaded:1b} run return 0
 
 # engine stores v2.2.2-pre1 (lowercase v)
-execute unless data storage datalib:output data.global{version:"v5.1.0"} run return 0
+execute unless data storage datalib:output data.global{version:"v5.1.1"} run return 0
 
 # --- Tehlikeli komutlar: injection engeli (permission-level 3 / singleplayer uyumsuz) ---
 execute if data storage datalib:output inputs{func:"datalib:api/cmd/op"} run return 0
