@@ -4,7 +4,7 @@
 ---
 
 
-> Current version: **v5.1.0**
+> Current version: **v5.1.1**
 ---
 
 ---
@@ -17,7 +17,7 @@
 ## 📦 Installation
 
 ```
-1. Place dataLib-v5.1.0 into <world>/datapacks/
+1. Place dataLib-v5.1.1 into <world>/datapacks/
 2. /reload
 3. /function dl_load:load/yes
 4. /tag @s add datalib.admin
@@ -30,7 +30,7 @@
 ```
 datalib:engine  (persistent data)
 ├── global
-│   ├── version: "v5.1.0"
+│   ├── version: "v5.1.1"
 │   └── tick: <int>
 ├── players
 │   └── Steve { coins:150, level:5, xp:2300, online:1b, ... }
@@ -84,7 +84,7 @@ Provides deterministic load order, version tracking, and pre/load/post-load hook
 # Check if dataLib is loaded
 execute if score dataLib load.status matches 1.. run say dataLib is loaded
 
-# Get version (major*10000 + minor*100 + patch → v5.1.0 = 50000)
+# Get version (major*10000 + minor*100 + patch → v5.1.1 = 50000)
 scoreboard players get dataLib load.status
 ```
 
@@ -124,4 +124,4 @@ function datalib:core/lib/string/replace
 
 ---
 
-*dataLib v5.1.0 | MC Java 1.20.3–26.1+ | Pure Datapack*
+*dataLib v5.1.1 | MC Java 1.20.3–26.1+ | Pure Datapack*
