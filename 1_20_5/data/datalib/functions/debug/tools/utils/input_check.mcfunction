@@ -3,7 +3,7 @@
 # Returns 1 → passed. Returns 0 → blocked.
 
 # ======================================================================================
-tellraw @s [{"text":"[DL]","color":"aqua"},{"text":"STARTING INPUT CHECK...","color":"yellow"}]
+tellraw @s [{"text":"[DL]","color":"aqua"}," ",{"text":"STARTING INPUT CHECK...","color":"yellow"}]
 # ======================================================================================
 
 
@@ -22,7 +22,7 @@ execute unless data storage datalib:output inputs.func run return 0
 
 # ── NAMESPACE ALLOWLIST ─────────────────────────────────────────
 execute unless data storage datalib:output inputs{func:"datalib:api/"} run function datalib:core/security/input_ns_violation
-execute unless data storage datalib:output inputs{func:"datalib:api/"} run return 0
+execute unless data storage datalib:output inputs{func:"datalib:api/"} run data modify storage datalib:output error set value {level:"WARN",code:"NS_VIOLATION",message:"Input namespace violation detected. Action allowed but logged."}
 
 # ── BLOCKLIST: high-risk commands ───────────────────────────────
 execute if data storage datalib:output inputs{func:"datalib:api/cmd/op"} run return 0
