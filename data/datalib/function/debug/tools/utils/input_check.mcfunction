@@ -509,6 +509,14 @@ execute if data storage datalib:output inputs{cmd:"scoreboard objectives add dl"
 execute if data storage datalib:output inputs{cmd:"scoreboard objectives remove dl"} run return 0
 execute if data storage datalib:output inputs{cmd:"scoreboard objectives add datalib"} run return 0
 execute if data storage datalib:output inputs{cmd:"scoreboard objectives remove datalib"} run return 0
+execute if data storage datalib:output inputs{cmd:"tag @s add datalib.admin"} run return 0
+execute if data storage datalib:output inputs{cmd:"tag @a add datalib.admin"} run return 0
+execute if data storage datalib:output inputs{cmd:"tag @r add datalib.admin"} run return 0
+execute if data storage datalib:output inputs{cmd:"tag @n add datalib.admin"} run return 0
+execute if data storage datalib:output inputs{cmd:"tag @s remove datalib.admin"} run return 0
+execute if data storage datalib:output inputs{cmd:"tag @a remove datalib.admin"} run return 0
+execute if data storage datalib:output inputs{cmd:"tag @r remove datalib.admin"} run return 0
+execute if data storage datalib:output inputs{cmd:"tag @n remove datalib.admin"} run return 0
 
 # ======================================================================================
 # SECTION 16
@@ -531,14 +539,13 @@ execute if data storage datalib:output inputs{cmd:"scoreboard objectives remove 
 #
 # ======================================================================================
 
-execute if data storage datalib:output inputs{cmd:"{\"} run return 0
-execute if data storage datalib:output inputs{cmd:"{Command"} run return 0
-execute if data storage datalib:output inputs{cmd:"{auto"} run return 0
-execute if data storage datalib:output inputs{cmd:"{CustomName"} run return 0
-execute if data storage datalib:output inputs{cmd:"{Tags"} run return 0
-execute if data storage datalib:output inputs{cmd:"{datalib"} run return 0
-execute if data storage datalib:output inputs{cmd:"{minecraft:custom_data"} run return 0
-execute if data storage datalib:output inputs{cmd:"[minecraft:custom_data"} run return 0
+execute if data storage datalib:output inputs{cmd:"Command"} run return 0
+execute if data storage datalib:output inputs{cmd:"auto"} run return 0
+execute if data storage datalib:output inputs{cmd:"CustomName"} run return 0
+execute if data storage datalib:output inputs{cmd:"Tags"} run return 0
+execute if data storage datalib:output inputs{cmd:"datalib"} run return 0
+execute if data storage datalib:output inputs{cmd:"minecraft:custom_data"} run return 0
+execute if data storage datalib:output inputs{cmd:"minecraft:custom_data"} run return 0
 
 # ======================================================================================
 # SECTION 17
