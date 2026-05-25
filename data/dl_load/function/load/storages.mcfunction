@@ -128,3 +128,15 @@ execute unless data storage datalib:engine modules.interaction run data modify s
 execute unless data storage datalib:engine modules.perm run data modify storage datalib:engine modules.perm set value 1b
 execute unless data storage datalib:engine modules.wand run data modify storage datalib:engine modules.wand set value 1b
 execute unless data storage datalib:engine modules.geo run data modify storage datalib:engine modules.geo set value 1b
+
+# ─────────────────────────────────────────────────────────────────
+# cb module init
+# cb_queue is always cleared on reload — in-flight delayed commands
+# cannot be safely resumed across a reload boundary.
+# ─────────────────────────────────────────────────────────────────
+data remove storage datalib:engine cb_queue
+data modify storage datalib:engine cb_queue set value []
+data remove storage datalib:engine _cb_last
+data remove storage datalib:engine _cb_work
+data remove storage datalib:engine _cb_entry
+execute unless data storage datalib:engine modules.cb run data modify storage datalib:engine modules.cb set value 1b
