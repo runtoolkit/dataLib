@@ -1,14 +1,19 @@
-execute if score #dl.pre dl.pre_version matches 1.. run tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"ready · dl.pre_version → ","color":"#555555"},{"score":{"name":"#dl.major","objective":"dl.pre_version"},"color":"aqua"},{"text":".","color":"#555555"},{"score":{"name":"#dl.minor","objective":"dl.pre_version"},"color":"aqua"},{"text":".","color":"#555555"},{"score":{"name":"#dl.patch","objective":"dl.pre_version"},"color":"aqua"},{"text":"-pre","color":"#ff8800"},{"score":{"name":"#dl.pre","objective":"dl.pre_version"},"color":"#ff8800"}]
-execute if score #dl.pre dl.pre_version matches ..0 run tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"ready · dl.pre_version → ","color":"#555555"},{"score":{"name":"#dl.major","objective":"dl.pre_version"},"color":"aqua"},{"text":".","color":"#555555"},{"score":{"name":"#dl.minor","objective":"dl.pre_version"},"color":"aqua"},{"text":".","color":"#555555"},{"score":{"name":"#dl.patch","objective":"dl.pre_version"},"color":"aqua"}]
+# dl_load:load/internal/finalize
+# Son adım — başarı mesajı ve debug bilgisi.
 
-execute if score #dl.pre dl.pre_version matches 1.. run tellraw @a [{"text":"\uE000","color":"#00AAAA"},{"text":" v","color":"aqua"},{"score":{"name":"#dl.major","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":".","color":"aqua"},{"score":{"name":"#dl.minor","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":".","color":"aqua"},{"score":{"name":"#dl.patch","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":"-pre","color":"#ff8800"},{"score":{"name":"#dl.pre","objective":"dl.pre_version"},"color":"#ff8800","bold":true},{"text":" ","color":"aqua"},{"translate":"datalib.msg.load.complete","color":"green"}]
-execute if score #dl.pre dl.pre_version matches ..0 run tellraw @a [{"text":"\uE000","color":"#00AAAA"},{"text":" v","color":"aqua"},{"score":{"name":"#dl.major","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":".","color":"aqua"},{"score":{"name":"#dl.minor","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":".","color":"aqua"},{"score":{"name":"#dl.patch","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":" ","color":"aqua"},{"translate":"datalib.msg.load.complete","color":"green"}]
+# Debug: version bilgisi
+execute if score #dl.pre dl.pre_version matches 1.. run tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"ready · ","color":"#555555"},{"score":{"name":"#dl.major","objective":"dl.pre_version"},"color":"aqua"},{"text":".","color":"#555555"},{"score":{"name":"#dl.minor","objective":"dl.pre_version"},"color":"aqua"},{"text":".","color":"#555555"},{"score":{"name":"#dl.patch","objective":"dl.pre_version"},"color":"aqua"},{"text":"-pre","color":"#ff8800"},{"score":{"name":"#dl.pre","objective":"dl.pre_version"},"color":"#ff8800"}]
+execute if score #dl.pre dl.pre_version matches ..0 run tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"ready · ","color":"#555555"},{"score":{"name":"#dl.major","objective":"dl.pre_version"},"color":"aqua"},{"text":".","color":"#555555"},{"score":{"name":"#dl.minor","objective":"dl.pre_version"},"color":"aqua"},{"text":".","color":"#555555"},{"score":{"name":"#dl.patch","objective":"dl.pre_version"},"color":"aqua"}]
+
+# Fork uyarısı (debug'a)
+execute unless data storage datalib:engine global{rt_origin_verified:1b} run tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"⚠ ","color":"yellow"},{"text":"Modified fork detected — _rt_origin not verified.","color":"yellow"}]
+
+# Başarı mesajı — tüm oyunculara
+execute if score #dl.pre dl.pre_version matches 1.. run tellraw @a ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✔ ","color":"green"},{"text":"v","color":"aqua"},{"score":{"name":"#dl.major","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":".","color":"aqua"},{"score":{"name":"#dl.minor","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":".","color":"aqua"},{"score":{"name":"#dl.patch","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":"-pre","color":"#ff8800"},{"score":{"name":"#dl.pre","objective":"dl.pre_version"},"color":"#ff8800","bold":true},{"text":" loaded.","color":"green"}]
+execute if score #dl.pre dl.pre_version matches ..0 run tellraw @a ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✔ ","color":"green"},{"text":"v","color":"aqua"},{"score":{"name":"#dl.major","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":".","color":"aqua"},{"score":{"name":"#dl.minor","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":".","color":"aqua"},{"score":{"name":"#dl.patch","objective":"dl.pre_version"},"color":"aqua","bold":true},{"text":" loaded.","color":"green"}]
+
 playsound datalib:load.success master @a ~ ~ ~ 0.6 1.2
 
-data modify storage datalib:input message set value "✔ All modules initialized. Engine ready."
-data modify storage datalib:input level set value "DL"
-data modify storage datalib:input color set value "green"
+data modify storage datalib:input message set value "[Load] finalize — engine ready"
 function datalib:systems/log/add with storage datalib:input {}
 data remove storage datalib:input message
-data remove storage datalib:input level
-data remove storage datalib:input color
