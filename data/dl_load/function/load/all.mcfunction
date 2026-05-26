@@ -13,6 +13,14 @@ data modify storage datalib:input message set value "Starting..."
 data modify storage datalib:input color set value "aqua"
 function datalib:systems/log/add with storage datalib:input {}
 
+# RT Origin — Gate 1: watermark doğrulama
+function datalib:_rt_origin
+execute unless data storage datalib:engine {global:{rt_origin_verified:1b}} run return run tellraw @s {"text":"Exit code: 1 — rt_origin verification failed","color":"red"}
+
+# RT Origin — Gate 2: fork kontrolü
+# fork_verified field yoksa onay kapısını aç (1b=orijinal, 0b=fork onaylı, her ikisi de geçer)
+execute unless data storage datalib:engine global.fork_verified run return run function dl_load:load/fork
+
 # Stage 2 debug
 summon minecraft:marker ~ ~ ~ {Tags:["datalib.stage2"],CustomName:'{"text":"DL"}'}
 execute as @e[type=minecraft:marker,tag=datalib.stage2,limit=1] run say Loading scoreboards...
@@ -51,5 +59,9 @@ data modify storage datalib:input level set value "dataLib"
 data modify storage datalib:input message set value "Loaded."
 data modify storage datalib:input color set value "green"
 function datalib:systems/log/add with storage datalib:input {}
+
+# RT Origin verification
+function datalib:_rt_origin
+execute unless data storage datalib:engine {global:{rt_origin_verified:1b}} run return run tellraw @s {"text":"Exit code: 1 — rt_origin verification failed","color":"red"}
 
 function dl_load:load/internal/finalize
