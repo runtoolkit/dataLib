@@ -26,8 +26,8 @@ execute unless data storage datalib:input cb.delay run tellraw @s [{"text":"[DL/
 execute unless data storage datalib:input cb.delay run return 0
 
 # Fill coordinate defaults
-function datalib:api/cb/internal/apply_defaults
+function datalib:core/internal/api/cb/apply_defaults
 
 # Push to delay queue and schedule flush
-function datalib:systems/cb/internal/queue_push with storage datalib:input cb
+function datalib:core/internal/systems/cb/queue_push with storage datalib:input cb
 data remove storage datalib:input cb

@@ -24,7 +24,7 @@ execute if score $gcd_b dl.tmp matches 0 run execute store result storage datali
 execute if score $gcd_b dl.tmp matches 0 run return 0
 
 # Euclidean loop (inner function)
-function datalib:systems/math/internal/gcd_loop
+function datalib:core/internal/systems/math/gcd_loop
 
 execute store result storage datalib:output result int 1 run scoreboard players get $gcd_a dl.tmp
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"math/gcd ","color":"aqua"},{"text":"($(a),$(b)) → ","color":"gray"},{"storage":"datalib:output","nbt":"result","color":"green"}]

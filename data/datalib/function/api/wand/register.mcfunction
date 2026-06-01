@@ -14,4 +14,4 @@
 #   function datalib:api/wand/register with storage datalib:input {}
 # ─────────────────────────────────────────────────────────────────
 execute unless data storage datalib:engine wand_binds run data modify storage datalib:engine wand_binds set value []
-function datalib:api/wand/internal/register_do with storage datalib:input {}
+function datalib:core/internal/api/wand/register_do with storage datalib:input {}

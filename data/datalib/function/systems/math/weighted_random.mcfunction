@@ -4,10 +4,10 @@ execute if score $wr_total dl.tmp matches ..0 run data modify storage datalib:ou
 execute if score $wr_total dl.tmp matches ..0 run return 0
 
 # Draw random in range 0..total-1
-data modify storage datalib:input min set value 0
+data modify storage datalib:engine _math_rnd_tmp.min set value 0
 scoreboard players remove $wr_total dl.tmp 1
-execute store result storage datalib:input max int 1 run scoreboard players get $wr_total dl.tmp
-function datalib:systems/math/random with storage datalib:input {}
+execute store result storage datalib:engine _math_rnd_tmp.max int 1 run scoreboard players get $wr_total dl.tmp
+function datalib:systems/math/random with storage datalib:engine _math_rnd_tmp
 
 execute store result score $wr_roll dl.tmp run data get storage datalib:output result
 execute store result storage datalib:output roll int 1 run scoreboard players get $wr_roll dl.tmp

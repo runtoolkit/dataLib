@@ -25,9 +25,9 @@ execute unless data storage datalib:input cb.cmds[0] run tellraw @s [{"text":"[D
 execute unless data storage datalib:input cb.cmds[0] run return 0
 
 # Fill defaults
-function datalib:api/cb/internal/apply_defaults
+function datalib:core/internal/api/cb/apply_defaults
 execute unless data storage datalib:input cb.interval run data modify storage datalib:input cb.interval set value 2
 
 # Expand cmds list into individual delayed queue entries
-function datalib:systems/cb/internal/seq_expand
+function datalib:core/internal/systems/cb/seq_expand
 data remove storage datalib:input cb

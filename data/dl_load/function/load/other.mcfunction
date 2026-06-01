@@ -18,4 +18,4 @@ function datalib:core/tick/init_channels
 
 # Assign pid for any players already online at load time
 # (on_player_join won't fire for them after a /reload)
-execute as @a run function datalib:player/internal/init_online
+execute as @a run function datalib:core/internal/player/init_online

@@ -29,7 +29,7 @@ execute if score $lcm_b dl.tmp matches ..-1 run scoreboard players operation $lc
 # Compute GCD (lcm_a, lcm_b share gcd_a, gcd_b variables)
 scoreboard players operation $gcd_a dl.tmp = $lcm_a dl.tmp
 scoreboard players operation $gcd_b dl.tmp = $lcm_b dl.tmp
-function datalib:systems/math/internal/gcd_loop
+function datalib:core/internal/systems/math/gcd_loop
 
 # lcm = (a / gcd) * b (divide first to prevent overflow)
 scoreboard players operation $lcm_a dl.tmp /= $gcd_a dl.tmp

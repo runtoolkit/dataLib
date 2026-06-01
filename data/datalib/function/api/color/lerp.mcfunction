@@ -23,8 +23,7 @@
 #   function datalib:api/color/lerp {gradient:"sunset",step:2}
 #   # → datalib:output result = "#FFAA00"
 
-execute unless function datalib:core/security/cmd_gate run return 0
-
 data modify storage datalib:output result set value ""
-$execute if data storage datalib:engine color.gradients.$(gradient) run function datalib:systems/color/internal/lerp_exec with storage datalib:input {}
+$data modify storage datalib:engine _color_lerp_tmp set value {gradient:"$(gradient)",step:$(step)}
+$execute if data storage datalib:engine color.gradients.$(gradient) run function datalib:core/internal/systems/color/lerp_exec with storage datalib:engine _color_lerp_tmp
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"color/lerp ","color":"aqua"},{"text":"$(gradient)[$(step)]","color":"white"},{"text":" → ","color":"#555555"},{"storage":"datalib:output","nbt":"result","color":"green"}]
