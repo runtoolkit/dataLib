@@ -9,4 +9,4 @@
 # OUTPUT: datalib:output result → 1b (exists) or 0b (does not exist)
 # ─────────────────────────────────────────────────────────────────
 
-function datalib:systems/nbt/internal/exists_exec with storage datalib:input {}
+function datalib:core/internal/systems/nbt/exists_exec with storage datalib:engine {}
