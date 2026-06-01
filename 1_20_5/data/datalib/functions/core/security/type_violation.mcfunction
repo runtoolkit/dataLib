@@ -9,4 +9,3 @@ data remove storage datalib:engine _log_add_tmp.color
 
 tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ ","color":"red"},{"text":"Security violation: command not permitted in sandbox mode.","color":"red"}]
 function datalib:core/security/type_violation/notify_admins with storage datalib:engine {}
-execute if entity @s[type=player] run kick @s [DL] Security violation — sandbox command blocked

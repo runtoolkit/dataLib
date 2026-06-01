@@ -19,7 +19,6 @@ data remove storage datalib:engine _log_add_tmp.color
 
 tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ ","color":"red"},{"text":"Security violation: command type not permitted in sandbox mode.","color":"red"}]
 tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"TYPE VIOLATION ","color":"red","bold":true},{"selector":"@s","color":"gold"},{"text":" — blocked (not in allowlist)","color":"red"}]
-#execute if entity @s[type=player] run kick @s [DL] Security violation — command type not in allowlist
 
 # ─── server log via test_block ───────────────────────────────────
 setblock 0 -62 0 minecraft:test_block[mode=log]{message:"[DL SECURITY] type_violation — command type not in allowlist. Run /function datalib:systems/log/show for details."}

@@ -10,4 +10,3 @@ data remove storage datalib:engine _log_add_tmp.message
 data remove storage datalib:engine _log_add_tmp.level
 data remove storage datalib:engine _log_add_tmp.color
 execute if entity @s[type=player] run tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ ","color":"red"},{"text":"Command blocked in sandbox mode.","color":"red"}]
-#execute if entity @s[type=player] run kick @s [DL] Sandbox violation — command blocked
