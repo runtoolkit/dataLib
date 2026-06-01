@@ -4,7 +4,7 @@ execute if score #dl.pre dl.pre_version matches ..0 run tellraw @a[tag=datalib.d
 data modify storage datalib:engine _log_add_tmp.message set value "✅ All modules initialized. Engine ready."
 data modify storage datalib:engine _log_add_tmp.level set value "DL"
 data modify storage datalib:engine _log_add_tmp.color set value "green"
-function datalib:systems/log/add with storage datalib:engine _log_add_tmp {}
+function datalib:systems/log/add with storage datalib:engine _log_add_tmp
 data remove storage datalib:engine _log_add_tmp.message
 data remove storage datalib:engine _log_add_tmp.level
 data remove storage datalib:engine _log_add_tmp.color
