@@ -17,6 +17,6 @@ execute if score #dl.pre dl.pre_version matches ..0 run tellraw @a ["",{"text":"
 
 playsound datalib:load.success master @a ~ ~ ~ 0.6 1.2
 
-data modify storage datalib:input message set value "[Load] finalize — engine ready"
-function datalib:systems/log/add with storage datalib:input {}
-data remove storage datalib:input message
+data modify storage datalib:engine _log_add_tmp message set value "[Load] finalize — engine ready"
+function datalib:systems/log/add with storage datalib:engine _log_add_tmp
+data remove storage datalib:engine _log_add_tmp message

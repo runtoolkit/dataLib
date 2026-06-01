@@ -5,13 +5,13 @@
 
 function datalib:core/lib/input_push
 
-data modify storage datalib:input x1 set value 0
-data modify storage datalib:input y1 set value 0
-data modify storage datalib:input z1 set value 0
-$data modify storage datalib:input x2 set value $(x)
-$data modify storage datalib:input y2 set value $(y)
-$data modify storage datalib:input z2 set value $(z)
-function datalib:systems/math/distance3d with storage datalib:input {}
+data modify storage datalib:engine _math_d3d_tmp x1 set value 0
+data modify storage datalib:engine _math_d3d_tmp y1 set value 0
+data modify storage datalib:engine _math_d3d_tmp z1 set value 0
+$data modify storage datalib:engine _math_d3d_tmp x2 set value $(x)
+$data modify storage datalib:engine _math_d3d_tmp y2 set value $(y)
+$data modify storage datalib:engine _math_d3d_tmp z2 set value $(z)
+function datalib:systems/math/distance3d with storage datalib:engine _math_d3d_tmp
 
 function datalib:core/lib/input_pop
 

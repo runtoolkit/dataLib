@@ -4,13 +4,13 @@
 # Context: @s = offending player. datalib:input._violation_type = command name.
 
 # Log entry
-data modify storage datalib:input message set value "[Security] type_violation — sandbox command not in allowlist"
-data modify storage datalib:input level set value "ERROR"
-data modify storage datalib:input color set value "red"
-execute if score #dl.log_level dl.log_level matches 2.. run function datalib:systems/log/add with storage datalib:input {}
-data remove storage datalib:input message
-data remove storage datalib:input level
-data remove storage datalib:input color
+data modify storage datalib:engine _log_add_tmp message set value "[Security] type_violation — sandbox command not in allowlist"
+data modify storage datalib:engine _log_add_tmp level set value "ERROR"
+data modify storage datalib:engine _log_add_tmp color set value "red"
+execute if score #dl.log_level dl.log_level matches 2.. run function datalib:systems/log/add with storage datalib:engine _log_add_tmp
+data remove storage datalib:engine _log_add_tmp message
+data remove storage datalib:engine _log_add_tmp level
+data remove storage datalib:engine _log_add_tmp color
 
 # Notify player
 tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ ","color":"red"},{"text":"Security violation: command not permitted in sandbox mode.","color":"red"}]

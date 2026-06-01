@@ -29,6 +29,5 @@ tellraw @a[tag=datalib.admin] ["",{"text":"     ","color":"#555555"},{"text":"Lo
 tellraw @a[tag=datalib.admin] ["",{"text":"     ","color":"#555555"},{"text":"[view upstream]","color":"aqua","underlined":true,"click_event":{"action":"open_url","url":"https://github.com/runtoolkit/dataLib"}},{"text":"  ","color":"#555555"},{"text":"[releases]","color":"gold","underlined":true,"click_event":{"action":"open_url","url":"https://github.com/runtoolkit/dataLib/releases"}},{"text":"  ","color":"#555555"},{"text":"[issues]","color":"yellow","underlined":true,"click_event":{"action":"open_url","url":"https://github.com/runtoolkit/dataLib/issues"}}]
 
 # ── Log system entry ──────────────────────────────────────────────
-data modify storage datalib:input message set value "[Load] fork_warn — rt_origin_verified not set, possible modified fork"
-function datalib:systems/log/warn with storage datalib:input {}
-data remove storage datalib:input message
+data modify storage datalib:engine _log_warn_tmp set value {message:"[Load] fork_warn — rt_origin_verified not set, possible modified fork"}
+function datalib:systems/log/warn with storage datalib:engine _log_warn_tmp
