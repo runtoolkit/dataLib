@@ -19,8 +19,6 @@
 #   function datalib:api/color/resolve {color:"red"}
 #   # → datalib:output result = "red"  (not in palette, returned as-is)
 
-execute unless function datalib:core/security/cmd_gate run return 0
-
 # Default: return input value
 $data modify storage datalib:output result set value "$(color)"
 

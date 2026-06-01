@@ -25,8 +25,6 @@
 #     low_color:"red",mid_color:"yellow",high_color:"green"}
 #   data get storage datalib:output result
 
-execute unless function datalib:core/security/cmd_gate run return 0
-
 # Default: high_color
 $data modify storage datalib:output result set value "$(high_color)"
 
