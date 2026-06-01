@@ -32,10 +32,10 @@ data modify storage datalib:input _gamerule_norm set from storage stringlib:outp
 data remove storage stringlib:input replace
 
 # ── Persist value in engine storage ──────────────────────────────────────────
-function datalib:api/gamerule/internal/persist with storage datalib:input {}
+function datalib:core/internal/api/gamerule/persist with storage datalib:input {}
 
 # ── Dispatch callbacks ────────────────────────────────────────────────────────
-function datalib:api/gamerule/internal/dispatch with storage datalib:input {}
+function datalib:core/internal/api/gamerule/dispatch with storage datalib:input {}
 
 # ── Debug log ─────────────────────────────────────────────────────────────────
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"gamerule/set ","color":"aqua"},{"text":" → ","color":"#555555"},{"text":"$(_gamerule_norm)","color":"white"},{"text":" = ","color":"#555555"},{"text":"$(value)","color":"green"}]

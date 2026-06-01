@@ -14,4 +14,4 @@
 # $uuid.has dl.tmp → 1 (found) or 0 (not found)
 # ============================================================
 scoreboard players set $uuid.has dl.tmp 0
-function datalib:systems/uuid/internal/has_check with storage datalib:input
+function datalib:core/internal/systems/uuid/has_check with storage datalib:input

@@ -23,6 +23,6 @@
 $data modify storage datalib:output result set value "$(color)"
 
 # Override if palette has this key
-execute if data storage datalib:engine color.palette run function datalib:systems/color/internal/resolve_exec with storage datalib:engine color
+execute if data storage datalib:engine color.palette run function datalib:core/internal/systems/color/resolve_exec with storage datalib:engine color
 
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"color/resolve ","color":"aqua"},{"text":"$(color)","color":"white"},{"text":" → ","color":"#555555"},{"storage":"datalib:output","nbt":"result","color":"green"}]

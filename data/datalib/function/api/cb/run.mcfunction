@@ -24,8 +24,8 @@ execute unless data storage datalib:input cb.cmd run tellraw @s [{"text":"[DL/cb
 execute unless data storage datalib:input cb.cmd run return 0
 
 # Fill coordinate defaults
-function datalib:api/cb/internal/apply_defaults
+function datalib:core/internal/api/cb/apply_defaults
 
 # Execute
-function datalib:api/cb/internal/exec with storage datalib:input cb
+function datalib:core/internal/api/cb/exec with storage datalib:input cb
 data remove storage datalib:input cb

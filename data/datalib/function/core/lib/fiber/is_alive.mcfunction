@@ -9,4 +9,4 @@
 # result → 1b (active) | 0b (dead or never started)
 # ─────────────────────────────────────────────────────────────────
 
-function datalib:core/lib/fiber/internal/is_alive_exec with storage datalib:input {}
+function datalib:core/internal/core/lib/fiber/is_alive_exec with storage datalib:input {}

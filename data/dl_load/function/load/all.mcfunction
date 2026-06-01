@@ -6,7 +6,7 @@ summon minecraft:marker ~ ~ ~ {Tags:["datalib.stage1"],CustomName:'{"text":"DL"}
 execute as @e[type=minecraft:marker,tag=datalib.stage1,limit=1] run say Starting dataLib...
 execute as @e[type=minecraft:marker,tag=datalib.stage1,limit=1] run kill @s
 
-execute unless function dl_load:load/internal/validate run return 0
+execute unless function dl_load:core/internal/load/validate run return 0
 
 data modify storage datalib:input level set value "D.L."
 data modify storage datalib:input message set value "Starting..."
@@ -39,7 +39,7 @@ function dl_load:load/other
 
 data modify storage datalib:engine global.loaded set value 1b
 
-function dl_load:load/internal/version_set
+function dl_load:core/internal/load/version_set
 
 # Lantern Load integration — set pack version in load.status
 # Format: (major * 10000) + (minor * 100) + patch
@@ -64,4 +64,4 @@ function datalib:systems/log/add with storage datalib:input {}
 function datalib:_rt_origin
 execute unless data storage datalib:engine {global:{rt_origin_verified:1b}} run return run tellraw @s {"text":"Exit code: 1 — rt_origin verification failed","color":"red"}
 
-function dl_load:load/internal/finalize
+function dl_load:core/internal/load/finalize

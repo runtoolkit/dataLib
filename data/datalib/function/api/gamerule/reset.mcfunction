@@ -19,7 +19,7 @@ function stringlib:util/replace
 data modify storage datalib:input _gamerule_norm set from storage stringlib:output replace
 data remove storage stringlib:input replace
 
-function datalib:api/gamerule/internal/remove with storage datalib:input {}
+function datalib:core/internal/api/gamerule/remove with storage datalib:input {}
 
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"gamerule/reset ","color":"aqua"},{"text":" → ","color":"#555555"},{"text":"$(_gamerule_norm)","color":"gray","italic":true},{"text":" removed","color":"gray"}]
 
