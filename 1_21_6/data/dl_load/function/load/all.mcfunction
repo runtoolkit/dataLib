@@ -48,6 +48,6 @@ execute if score #dl.pre dl.pre_version matches ..0 run tellraw @a[tag=datalib.d
 data modify storage datalib:engine _log_add_tmp.level set value "dataLib"
 data modify storage datalib:engine _log_add_tmp.message set value "Loaded."
 data modify storage datalib:engine _log_add_tmp.color set value "green"
-function datalib:systems/log/add with storage datalib:engine _log_add_tmp {}
+function datalib:systems/log/add with storage datalib:engine _log_add_tmp
 
 function dl_load:core/internal/load/finalize
