@@ -19,4 +19,4 @@ tellraw @s ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"✘ ","co
 function datalib:core/security/type_violation/notify_admins with storage datalib:input {}
 
 # Kick offending player
-execute if entity @s[type=minecraft:player] run kick @s [DL] Security violation — sandbox command blocked
+execute if entity @s[type=player] run kick @s [DL] Security violation — sandbox command blocked
