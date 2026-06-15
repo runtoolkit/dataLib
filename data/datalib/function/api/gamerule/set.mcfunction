@@ -21,7 +21,7 @@
 #
 # RETURN: 1 on success, 0 on guard failure.
 
-execute unless function datalib:debug/tools/utils/check_all run return 0
+execute unless function datalib:core/security/cmd_gate run return 0
 
 # ── Normalize rule name: spaces → underscores via StringLib ──────────────────
 data modify storage stringlib:input replace.String set from storage datalib:input rule

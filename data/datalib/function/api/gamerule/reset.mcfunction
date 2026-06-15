@@ -9,7 +9,7 @@
 #   data modify storage datalib:input rule set value "pvp_enabled"
 #   function datalib:api/gamerule/reset with storage datalib:input {}
 
-execute unless function datalib:debug/tools/utils/check_all run return 0
+execute unless function datalib:core/security/cmd_gate run return 0
 
 # Normalize
 data modify storage stringlib:input replace.String set from storage datalib:input rule

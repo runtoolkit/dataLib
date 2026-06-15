@@ -9,7 +9,7 @@
 #
 # Input (macro args):
 #   objective     — scoreboard objective name
-#   player        — fake player or selector name (@s not supported; use real name)
+#   player        — player name, fake player name (include # prefix), or selector string
 #   low_threshold — score below this → low_color
 #   mid_threshold — score below this → mid_color (if >= low_threshold)
 #   low_color     — color for low range  (e.g. "red")
@@ -29,7 +29,7 @@
 $data modify storage datalib:output result set value "$(high_color)"
 
 # Override with low or mid if score is below threshold
-$execute if score #$(player) $(objective) matches ..$(low_threshold) run data modify storage datalib:output result set value "$(low_color)"
-$execute if score #$(player) $(objective) matches $(low_threshold)..$(mid_threshold) run data modify storage datalib:output result set value "$(mid_color)"
+$execute if score $(player) $(objective) matches ..$(low_threshold) run data modify storage datalib:output result set value "$(low_color)"
+$execute if score $(player) $(objective) matches $(low_threshold)..$(mid_threshold) run data modify storage datalib:output result set value "$(mid_color)"
 
 $tellraw @a[tag=datalib.debug] ["",{"text":"[DL] ","color":"#00AAAA","bold":true},{"text":"color/from_score ","color":"aqua"},{"text":"$(player) ","color":"white"},{"text":"→ ","color":"#555555"},{"storage":"datalib:output","nbt":"result","color":"green"}]
