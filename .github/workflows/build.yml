@@ -50,7 +50,7 @@ jobs:
       # 📂 Copy base layer (excluding overlay directories)
       - name: Copy base layer
         run: |
-          OVERLAY_DIRS="1_20_3 1_20_5 _pre_1_21_4 compat_1_21_4 1_21_5 1_21_6 26_1"
+          OVERLAY_DIRS="1_20_3 1_20_5 _pre_1_21_4 compat_1_21_4 1_21_5 1_21_6 26_1 26_2"
           EXCLUDES=""
           for d in $OVERLAY_DIRS; do
             EXCLUDES="$EXCLUDES --exclude=$d"
@@ -68,7 +68,7 @@ jobs:
       # 📂 Copy overlays
       - name: Copy target overlays
         run: |
-          ALL_OVERLAYS="1_20_3 1_20_5 _pre_1_21_4 compat_1_21_4 1_21_5 1_21_6 26_1"
+          ALL_OVERLAYS="1_20_3 1_20_5 _pre_1_21_4 compat_1_21_4 1_21_5 1_21_6 26_1 26_2"
           TARGET="${{ matrix.overlays }}"
 
           if [ -z "$TARGET" ]; then
