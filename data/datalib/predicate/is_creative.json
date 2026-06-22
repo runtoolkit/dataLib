@@ -3,10 +3,10 @@
     "condition": "minecraft:entity_properties",
     "entity": "this",
     "predicate": {
-      "type": "minecraft:player",
       "player": {
         "game_mode": "creative"
-      }
+      },
+      "minecraft:entity_type": "minecraft:player"
     }
   }
 ]

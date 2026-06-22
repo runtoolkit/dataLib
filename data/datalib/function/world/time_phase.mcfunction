@@ -24,7 +24,7 @@
 # # → "day"
 # ─────────────────────────────────────────────────────────────────
 
-execute store result score $tp_t dl.tmp run time query daytime
+execute store result score $tp_t dl.tmp run time query time
 execute store result storage datalib:output daytime int 1 run scoreboard players get $tp_t dl.tmp
 
 # Boolean flags
