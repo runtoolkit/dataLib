@@ -66,7 +66,7 @@ jobs:
             xargs --no-run-if-empty sed -i -E 's/time of [a-z0-9_:.-]+ /time /g'
           find . -name "*.mcfunction" -not -path "./.git/*" \
             -exec grep -l 'time query day repetition' {} \; | \
-            xargs --no-run-if-empty sed -i 's/time query day repetition/time query daytime/g'
+            xargs --no-run-if-empty sed -i 's/time query day repetition/time query time/g'
 
       - name: Validate mcfunction syntax (mecha)
         run: mecha .
