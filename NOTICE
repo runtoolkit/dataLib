@@ -12,7 +12,7 @@ You MUST:
 * Credit "Legends11 / runtoolkit" in any public use, redistribution, or derivative work
 * Link to the original repository
 * Distribute derivative works under the same CC BY-NC-SA 4.0 license
-* Retain this notice and all copyright/attribution information in copies and derivative works
+* Retain this notice and all copyright, attribution, and licensing information in copies and derivative works
 
 You MAY NOT:
 
@@ -32,29 +32,27 @@ You MAY NOT:
 * Generate synthetic datasets, embeddings, model weights, or derivative training materials from this work without prior written permission from the copyright holder
 * Use this work for automated code harvesting, large-scale data collection, model distillation, retrieval augmentation, or similar AI-related purposes without prior written permission from the copyright holder
 
-Infrastructure and GitHub Actions Restrictions
+Infrastructure and Platform Restrictions
 
 You MAY NOT:
 
 * Abuse, exploit, overload, or otherwise misuse any GitHub Actions workflows, CI/CD infrastructure, automated services, runners, caches, artifacts, packages, or repository resources associated with this project
-* Use this project or its infrastructure for cryptocurrency mining, resource farming, spam, automated abuse, unauthorized scanning, stress testing, or resource exhaustion
-* Circumvent, disable, interfere with, or attempt to bypass repository protections, workflow limitations, usage quotas, or security mechanisms
+* Abuse, exploit, overload, or otherwise misuse GitHub Codespaces, development containers, virtual machines, storage, networking resources, or any cloud-based development environment associated with this project
+* Use this project's GitHub Actions workflows, GitHub Codespaces environments, devcontainer.json configuration, development containers, or derivative configurations for cryptocurrency mining, botnet activity, spam, automated abuse, resource farming, unauthorized scanning, stress testing, resource exhaustion, or similar activities
+* Modify, redistribute, or deploy the provided devcontainer.json configuration for the purpose of bypassing platform limits, consuming excessive resources, evading service restrictions, or conducting abusive activities
+* Use the provided devcontainer.json configuration, development container environment, or derivative configurations for any purpose other than legitimate development, testing, maintenance, or contribution to this project
+* Abuse, exploit, misuse, modify, redistribute, or repurpose the provided devcontainer.json configuration or derivative configurations for malicious, unauthorized, abusive, resource-intensive, or non-development-related activities
+* Circumvent, disable, interfere with, or attempt to bypass repository protections, workflow limitations, usage quotas, security controls, or platform restrictions
 
-Security and Network Abuse Restrictions
+Security and Vulnerability Restrictions
 
 You MAY NOT:
 
 * Use this work or derivative works to perform, facilitate, encourage, or support denial-of-service (DoS), distributed denial-of-service (DDoS), traffic flooding, service disruption, or resource exhaustion attacks
-* Use this work to conduct unauthorized access attempts, vulnerability exploitation, credential attacks, phishing, spam campaigns, botnet activity, or malicious automation
+* Use this work to conduct unauthorized access attempts, credential attacks, phishing campaigns, spam operations, botnet activity, malicious automation, or similar abusive behavior
 * Use this work in any manner intended to disrupt, damage, degrade, interfere with, or negatively impact systems, networks, infrastructure, services, repositories, or users
+* Use, weaponize, distribute, demonstrate, facilitate, or automate the exploitation of zero-day vulnerabilities in Minecraft, Minecraft servers, Minecraft plugins, Minecraft mods, Minecraft tooling, or related software
+* Include code, content, or modifications intended to exploit undisclosed security vulnerabilities in Minecraft or related software
+* Develop, distribute, or use derivative works for the purpose of exploiting security vulnerabilities, bypassing security mechanisms, or gaining unauthorized access to systems or services
 
-Minecraft and Community Use Restrictions
-
-You MAY NOT:
-
-* Use this datapack or derivative works to intentionally disrupt servers, communities, events, or gameplay
-* Use this datapack to exploit server vulnerabilities, bypass server rules, evade moderation systems, gain unauthorized advantages, or facilitate cheating
-* Use this datapack for griefing, harassment, abuse, player targeting, or other activities intended to negatively affect the experience of others
-* Distribute modified versions that intentionally introduce harmful, deceptive, or disruptive behavior
-
-The copyright holder reserves the right to deny permission for uses that conflict with the spirit of this project, community safety, infrastructure integrity, or fair and responsible use.
+The copyright holder reserves the right to deny permission for uses that conflict with the intended purpose of this project, community safety, infrastructure integrity, security, or fair and responsible use.
