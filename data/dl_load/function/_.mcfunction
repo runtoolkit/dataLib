@@ -24,6 +24,8 @@
 # CANCELLING:  /function dl_load:load/no
 # AUTO-CANCEL: fires after 5 minutes if no response
 
+execute if data storage datalib:engine {global:{loaded:1b}} run return 0
+
 summon minecraft:marker ~ ~ ~ {Tags:["datalib.stage0"],CustomName:'{"text":"DL"}'}
 execute as @e[type=minecraft:marker,tag=datalib.stage0,limit=1] run function dl_load:load/confirm
 execute as @e[type=minecraft:marker,tag=datalib.stage0,limit=1] run kill @s
