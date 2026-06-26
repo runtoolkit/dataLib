@@ -34,6 +34,26 @@ jobs:
           find . -type f -name "*.mcfunction" > /tmp/mcfunction_list.txt
           echo "Found $(wc -l < /tmp/mcfunction_list.txt) mcfunction files"
 
+      - name: Patch mecha compat (colon-space in storage paths + 26.1 time syntax)
+        # 1. "namespace: path" — space after colon in storage targets.
+        #    Valid in Minecraft, unsupported by mecha's parser.
+        # 2. "time of <dimension> query" — dimension-scoped time command added in 26.1.
+        #    Mecha only knows: time add|query|set.
+        #    Normalized to "time query daytime" for validation purposes.
+        # 3. "time query day repetition" — new subcommand added in 26.1.
+        #    Mecha does not recognize "repetition"; stripped for validation purposes.
+        # All changes apply to the runner copy only — source files are not modified.
+        run: |
+          find . -name "*.mcfunction" -not -path "./.git/*" \
+            -exec grep -lP '[\w.-]+: _' {} \; | \
+            xargs --no-run-if-empty sed -i -E 's/([a-z0-9._-]+): _/\1:_/g'
+          find . -name "*.mcfunction" -not -path "./.git/*" \
+            -exec grep -l 'time of ' {} \; | \
+            xargs --no-run-if-empty sed -i -E 's/time of [a-z0-9_:.-]+ /time /g'
+          find . -name "*.mcfunction" -not -path "./.git/*" \
+            -exec grep -l 'time query day repetition' {} \; | \
+            xargs --no-run-if-empty sed -i 's/time query day repetition/time query daytime/g'
+
       - name: Mecha Validation
         run: |
           echo "Running Mecha validation..."
