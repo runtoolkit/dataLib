@@ -1,0 +1,100 @@
+name: Datapack Auto Fixer (Beet + Mecha)
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ '*' ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  check-and-fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Beet and Mecha
+        run: |
+          pip install beet mecha
+
+      - name: List all mcfunction files to /tmp
+        run: |
+          mkdir -p /tmp
+          find . -type f -name "*.mcfunction" > /tmp/mcfunction_list.txt
+          echo "Found $(wc -l < /tmp/mcfunction_list.txt) mcfunction files"
+
+      - name: Mecha Validation
+        run: |
+          echo "Running Mecha validation..."
+          python -c '
+          import sys
+          from mecha import Mecha
+          from pathlib import Path
+
+          m = Mecha()
+          error_count = 0
+
+          list_file = Path("/tmp/mcfunction_list.txt")
+          if not list_file.exists():
+              print("No mcfunction files found.")
+              sys.exit(0)
+
+          for line in list_file.read_text(encoding="utf-8").splitlines():
+              file_path = line.strip()
+              if not file_path:
+                  continue
+              try:
+                  with open(file_path, "r", encoding="utf-8") as f:
+                      content = f.read()
+                  m.compile(content, filename=file_path)
+                  print(f"✓ {file_path}")
+              except Exception as e:
+                  print(f"✗ {file_path} → {e}")
+                  error_count += 1
+
+          print(f"Validation finished. Errors: {error_count}")
+          if error_count > 0:
+              print("Validation failed, but proceeding to auto-fix pipeline...")
+          '
+
+      - name: Beet Pipeline Build (with fixes/transforms)
+        run: |
+          if [ ! -f beet.json ]; then
+            cat > beet.json << 'EOF'
+          {
+            "name": "auto-fixed-datapack",
+            "output": "fixed_datapack",
+            "pipeline": ["mecha"],
+            "data_pack": {
+              "load": ["."]
+            }
+          }
+          EOF
+          fi
+          
+          beet build
+
+      - name: Commit fixes to fixed-bugs branch
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto-fix: Mecha validation + Beet pipeline fixes"
+          branch: datapack-fixer/fixed-bugs
+          create_branch: true
+          file_pattern: |
+            fixed_datapack/**
+            *_*_*/data
+            *_*/data
+            data/**
+            pack.mcmeta
+            beet.json
