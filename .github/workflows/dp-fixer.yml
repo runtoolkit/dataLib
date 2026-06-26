@@ -12,7 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
+    outputs:
+      changes_detected: ${{ steps.auto_commit.outputs.changes_detected }}
+      git_status: ${{ steps.save_status.outputs.status_lines }}
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -35,14 +38,6 @@ jobs:
           echo "Found $(wc -l < /tmp/mcfunction_list.txt) mcfunction files"
 
       - name: Patch mecha compat (colon-space in storage paths + 26.1 time syntax)
-        # 1. "namespace: path" — space after colon in storage targets.
-        #    Valid in Minecraft, unsupported by mecha's parser.
-        # 2. "time of <dimension> query" — dimension-scoped time command added in 26.1.
-        #    Mecha only knows: time add|query|set.
-        #    Normalized to "time query daytime" for validation purposes.
-        # 3. "time query day repetition" — new subcommand added in 26.1.
-        #    Mecha does not recognize "repetition"; stripped for validation purposes.
-        # All changes apply to the runner copy only — source files are not modified.
         run: |
           find . -name "*.mcfunction" -not -path "./.git/*" \
             -exec grep -lP '[\w.-]+: _' {} \; | \
@@ -105,16 +100,78 @@ jobs:
           
           beet build
 
+      - name: Sync Fixed Datapack to Root and Clean Up
+        run: |
+          TARGET_DIR="fixed_datapack/auto-fixed-datapack_data_pack"
+          
+          if [ -d "$TARGET_DIR" ]; then
+            echo "Syncing changes back to repository root..."
+            rsync -av --delete \
+              --exclude='.git/' \
+              --exclude='.github/' \
+              --exclude='fixed_datapack/' \
+              "$TARGET_DIR/" .
+            
+            echo "Cleaning up fixed_datapack folder..."
+            rm -rf fixed_datapack/
+          else
+            echo "Warning: Target directory $TARGET_DIR not found!"
+          fi
+
+      - name: Save Git Status for Summary Job
+        id: save_status
+        run: |
+          # Değişen dosyaları JSON uyumlu tek bir satır haline getirir
+          STATUS=$(git status --short | tr '\n' ',' | sed 's/,$//')
+          echo "status_lines=$STATUS" >> $GITHUB_OUTPUT
+
       - name: Commit fixes to fixed-bugs branch
+        id: auto_commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "🤖 Auto-fix: Mecha validation + Beet pipeline fixes"
           branch: datapack-fixer/fixed-bugs
           create_branch: true
           file_pattern: |
-            fixed_datapack/**
             *_*_*/data
             *_*/data
             data/**
             pack.mcmeta
             beet.json
+
+  summary:
+    runs-on: ubuntu-latest
+    needs: check-and-fix
+    if: always()
+    steps:
+      - name: Generate Markdown Summary
+        run: |
+          echo "### 🚀 Datapack Auto Fixer Summary Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.check-and-fix.outputs.changes_detected }}" = "true" ]; then
+            echo "#### 📝 Applied Changes" >> $GITHUB_STEP_SUMMARY
+            echo "| Status | File Path |" >> $GITHUB_STEP_SUMMARY
+            echo "| :--- | :--- |" >> $GITHUB_STEP_SUMMARY
+            
+            # Gelen veriyi virgüllerden ayırarak satırlara böler ve tabloya yazar
+            IFS=',' read -r -a lines <<< "${{ needs.check-and-fix.outputs.git_status }}"
+            for line in "${lines[@]}"; do
+              if [ ! -z "$line" ]; then
+                status=$(echo "$line" | awk '{print $1}')
+                file=$(echo "$line" | awk '{print $2}')
+                
+                case "$status" in
+                  M)   echo "| 🔄 Updated | \`$file\` |" >> $GITHUB_STEP_SUMMARY ;;
+                  A|??) echo "| ➕ Added | \`$file\` |" >> $GITHUB_STEP_SUMMARY ;;
+                  D)   echo "| ❌ Deleted | \`$file\` |" >> $GITHUB_STEP_SUMMARY ;;
+                  *)   echo "| 🛠️ Changed | \`$file\` |" >> $GITHUB_STEP_SUMMARY ;;
+                esac
+              fi
+            done
+            
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "✅ Changes have been successfully pushed to the \`datapack-fixer/fixed-bugs\` branch." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✨ **Everything is clean!** No file changes or fixes were required." >> $GITHUB_STEP_SUMMARY
+          fi
