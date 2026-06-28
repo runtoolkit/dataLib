@@ -63,19 +63,19 @@ jobs:
             --exclude='README.md' \
             --exclude='version.json' \
             --exclude='dependencies.json' \
-            ./ build/
-            ./*.gradle
-            ./src/testmod
-            ./build
-            ./.devcontainer
-            ./.gradle
-            ./scipts
-            ./dependencies.json
-            ./spyglass.json
-            ./version.json
-            ./*.bat
-            ./gradlew
-            ./gradle
+            ./ build/ \
+            ./*.gradle \
+            ./src/testmod \
+            ./build \
+            ./.devcontainer \
+            ./.gradle \
+            ./scipts \
+            ./dependencies.json \
+            ./spyglass.json \
+            ./version.json \
+            ./*.bat \
+            ./gradlew \
+            ./gradle \
 
       # 📂 Copy overlays
       - name: Copy target overlays
