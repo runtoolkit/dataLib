@@ -1,14 +1,15 @@
 name: Datapack Multi-Version Build
-
 on:
   push:
     branches: [main]
   pull_request:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         include:
@@ -31,9 +32,8 @@ jobs:
           - label: "full"
             pack_format: 101
             overlays: ""
-
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       # 🔒 Repo lock — prevent running from wrong fork
       - name: Repo lock
@@ -63,26 +63,16 @@ jobs:
             --exclude='README.md' \
             --exclude='version.json' \
             --exclude='dependencies.json' \
-            ./ build/ \
-            ./*.gradle \
-            ./src/testmod \
-            ./build \
-            ./.devcontainer \
-            ./.gradle \
-            ./scipts \
-            ./dependencies.json \
-            ./spyglass.json \
-            ./version.json \
-            ./*.bat \
-            ./gradlew \
-            ./gradle \
+            --exclude='build' \
+            --exclude='.devcontainer' \
+            --exclude='.gradle' \
+            ./ build/
 
       # 📂 Copy overlays
       - name: Copy target overlays
         run: |
           ALL_OVERLAYS="1_20_3 1_20_5 _pre_1_21_4 compat_1_21_4 1_21_5 1_21_6 26_1 26_2"
           TARGET="${{ matrix.overlays }}"
-
           if [ -z "$TARGET" ]; then
             # Full build: copy all overlay directories
             for d in $ALL_OVERLAYS; do
@@ -105,13 +95,11 @@ jobs:
           LABEL="${{ matrix.label }}"
           FORMAT="${{ matrix.pack_format }}"
           OVERLAYS="${{ matrix.overlays }}"
-
           # Convert overlay list to jq array (may be empty for full build)
           JQ_ARRAY="[]"
           for ov in $OVERLAYS; do
             JQ_ARRAY=$(echo "$JQ_ARRAY" | jq --arg d "$ov" '. + [$d]')
           done
-
           jq \
             --argjson fmt "$FORMAT" \
             --argjson keep "$JQ_ARRAY" \
@@ -142,7 +130,7 @@ jobs:
           echo "Archive size: $(du -sh ../dataLib-${{ matrix.label }}.zip | cut -f1)"
 
       # 🚀 Upload as artifact
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: dataLib-${{ matrix.label }}
           path: dataLib-${{ matrix.label }}.zip
@@ -156,12 +144,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
     permissions:
       contents: write
-
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       # 🔒 Repo lock
       - name: Repo lock
@@ -181,7 +167,6 @@ jobs:
       - name: Read version
         id: ver
         run: |
-          # Extract version like "v6.0.0" from the description array in pack.mcmeta
           VERSION=$(jq -r '
             .pack.description |
             if type == "array" then
@@ -191,7 +176,6 @@ jobs:
             select(test("^\\s*\\|\\s*v[0-9]")) |
             gsub("^\\s*\\|\\s*"; "") | ltrimstr(" ")
           ' pack.mcmeta | head -1)
-          # Fallback: if description is a plain string, extract directly
           if [ -z "$VERSION" ]; then
             VERSION=$(jq -r '.pack.description' pack.mcmeta | grep -oP 'v[\d.]+' | head -1)
           fi
@@ -204,11 +188,8 @@ jobs:
         run: |
           TAG="${{ steps.ver.outputs.version }}"
           ZIP="dist/dataLib-full.zip"
-
-          # Delete existing tag if it exists, otherwise continue
           gh release delete "$TAG" --yes 2>/dev/null || true
           git push origin ":refs/tags/$TAG" 2>/dev/null || true
-
           gh release create "$TAG" \
             --title "dataLib $TAG" \
             --notes "**Full multi-version datapack build** (pack_format 101, all overlays included)." \
